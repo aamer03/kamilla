@@ -3,5 +3,3 @@
 
 .button{background:#207454}.button:hover{background:#185d48}.closing .button{background:var(--paper);color:var(--ink)}
 
-
-.hero-illustration{border-radius:180px 180px 12px 12px;background:#deedf6;min-height:0;aspect-ratio:4/5}.hero-illustration img{width:100%;height:100%;object-fit:cover;display:block}@media(max-width:700px){.hero-illustration{min-height:0;max-width:450px}}
