@@ -3,6 +3,7 @@
 
 .button{background:#207454}.button:hover{background:#185d48}.closing .button{background:var(--paper);color:var(--ink)}
 
+
 :root{--ink:#163f65;--navy:#10375a;--paper:#f7fbfd;--sage:#e0f1e8;--line:#cbdde5;--muted:#476174}
 body{font-size:18px;line-height:1.7;overflow-wrap:break-word}
 .wrap{width:min(1120px,90%)}
@@ -45,4 +46,3 @@ html{scroll-behavior:auto;scroll-padding-top:24px}section[id],article[id]{scroll
 @media(max-width:700px){.hero{grid-template-columns:1fr;padding-top:35px;padding-bottom:35px}.hero h1{font-size:clamp(2.5rem,11vw,3.5rem)}.hero .art{display:none}.section{padding-top:40px;padding-bottom:40px}.programs,.split{grid-template-columns:minmax(0,1fr);gap:28px}.intro{padding-top:35px}.intro h1{font-size:clamp(2.5rem,10vw,3.5rem)}.language-band{font-size:1rem}.closing .button{margin:0}.service-list article{grid-template-columns:minmax(0,1fr);gap:16px}.panel{padding:24px}.footer-bottom{font-size:.875rem}.brand{gap:10px;font-size:1rem}.monogram{font-size:38px;padding-right:12px}.brand small{font-size:.6875rem}.js .menu{font-size:1rem;min-width:74px}.resource-list>a{padding-left:0;padding-right:0}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
 @media(forced-colors:active){.button,nav a[aria-current],.menu{border:2px solid ButtonText}.art{display:none}a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid Highlight;box-shadow:none}}
-

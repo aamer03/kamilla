@@ -1,0 +1,11 @@
+{
+  "name": "kamilla-akhmedova-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Kamilla Akhmedova advocacy and support website",
+  "scripts": {
+    "build": "node build.cjs",
+    "check": "node check.cjs && node --check dist/main.js"
+  },
+  "engines": { "node": ">=18" }
+}
