@@ -6,3 +6,5 @@
 - `assets/community-friends.jpg`: Kampus Production, [Friends Smiling for a Groupie Photo](https://www.pexels.com/photo/friends-smiling-for-a-groupie-photo-8777820/).
 
 Stock photos were downloaded November 3, 2026 under the [Pexels License](https://www.pexels.com/license/). They are illustrative; subjects are not represented as clients or as having a diagnosis, endorsement, or program enrollment. Source images are resized by Pexels to 900px width for web use. The supplied portrait is used without image edits.
+
+- `assets/family-support-drawkit.png`: Social Work & Charity collection by DrawKit, original PNG supplied by the user. Resized proportionally for web use with original composition and colors preserved. Source: https://www.drawkit.com/illustrations/social-work-charity-illustrations ; License: https://www.drawkit.com/license . Used as part of this client website, not redistributed as a standalone asset pack.
