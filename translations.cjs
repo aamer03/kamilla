@@ -1,5 +1,11 @@
 // English source text, Russian, Uzbek (Latin script).
 module.exports = [
+['I’m looking for support','Я ищу поддержку','Yordam izlayapman'],
+['I’m looking for work','Я ищу работу','Ish izlayapman'],
+['A PERSONAL WELCOME','ЛИЧНОЕ ПРИВЕТСТВИЕ','SAMIMIY SALOM'],
+['You don’t have to figure it out alone.','Вам не нужно разбираться во всем в одиночку.','Barchasini yolg‘iz hal qilishingiz shart emas.'],
+['Welcome. Whether you’re exploring support for yourself, helping someone you love, or looking for meaningful work, you can start with a conversation. I’m here to listen, understand your questions, and help you explore your next step.','Добро пожаловать. Ищете ли вы поддержку для себя, помогаете близкому или хотите найти работу, которая приносит пользу, — начните с разговора. Я готова выслушать вас, разобраться в ваших вопросах и помочь наметить следующий шаг.','Xush kelibsiz. O‘zingiz uchun yordam izlayotgan, yaqiningizga ko‘maklashayotgan yoki mazmunli ish qidirayotgan bo‘lsangiz, suhbatdan boshlashingiz mumkin. Men sizni tinglashga, savollaringizni tushunishga va keyingi qadamni aniqlashda ko‘maklashishga tayyorman.'],
+['Let’s talk about what you need','Обсудим, какая помощь вам нужна','Sizga qanday yordam kerakligini muhokama qilaylik'],
 ['Skip to content','Перейти к содержимому','Asosiy mazmunga o‘tish'],
 ['Kamilla Akhmedova','Камилла Ахмедова','Kamilla Akhmedova'],
 ['ADVOCACY & SUPPORT','ЗАЩИТА ИНТЕРЕСОВ И ПОДДЕРЖКА','HUQUQ VA MANFAATLARNI HIMOYA QILISH'],
