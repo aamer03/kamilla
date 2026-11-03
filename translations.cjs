@@ -1,5 +1,7 @@
 // English source text, Russian, Uzbek (Latin script).
 module.exports = [
+['Areas of focus','Основные направления','Asosiy yo‘nalishlar'],
+['Personal advocacy and guidance for NHTD, TBI, and OPWDD programs in New York City. Talk with Kamilla Akhmedova about support for yourself or someone you love.','Личная поддержка и помощь по вопросам программ NHTD, TBI и OPWDD в Нью-Йорке. Обсудите с Камиллой Ахмедовой поддержку для себя или близкого человека.','Nyu-York shahrida NHTD, TBI va OPWDD dasturlari bo‘yicha shaxsiy ko‘mak va yo‘l-yo‘riq. O‘zingiz yoki yaqiningiz uchun yordam haqida Kamilla Akhmedova bilan suhbatlashing.'],
 ['I’m looking for support','Я ищу поддержку','Yordam izlayapman'],
 ['I’m looking for work','Я ищу работу','Ish izlayapman'],
 ['A PERSONAL WELCOME','ЛИЧНОЕ ПРИВЕТСТВИЕ','SAMIMIY SALOM'],
