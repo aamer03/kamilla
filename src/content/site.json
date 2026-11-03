@@ -1,0 +1,33 @@
+{
+  "languages": {
+    "en": "English",
+    "ru": "Русский",
+    "uz": "O‘zbek"
+  },
+  "pages": [
+    {
+      "id": "about",
+      "file": "about.html"
+    },
+    {
+      "id": "careers",
+      "file": "careers.html"
+    },
+    {
+      "id": "contact",
+      "file": "contact.html"
+    },
+    {
+      "id": "home",
+      "file": "index.html"
+    },
+    {
+      "id": "resources",
+      "file": "resources.html"
+    },
+    {
+      "id": "services",
+      "file": "services.html"
+    }
+  ]
+}

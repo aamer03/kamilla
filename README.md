@@ -1,34 +1,43 @@
 # Kamilla Akhmedova website
 
-A responsive six-page website built with HTML, CSS, and vanilla JavaScript. No npm dependencies are required. Fonts load from Google Fonts.
+Static website in English, Russian and Uzbek, using HTML templates, CSS and vanilla JavaScript. No npm dependencies. Fonts load from Google Fonts.
 
-## Build and check
+## Build and verify
 
-Requires Node.js 18 or newer.
+Requires Node.js 18 or newer. Run from this folder:
 
 ```sh
 npm run build
 npm run check
 ```
 
-The complete deployable website is in `dist/`. Any static web host can serve that directory.
+The build writes all 18 pages and supporting files into `dist/`. Commit source and generated output. Edit source files; rebuilding replaces generated files in `dist/`.
 
-## Editing
+## Where to edit
 
-- `build.cjs`: page content, navigation, shared header and footer.
-- `base.css`: base blue-and-green design.
-- `accessibility.css`: responsive layouts, readable typography, focus indicators, and accessibility overrides.
-- `navigation.js`: progressively enhanced mobile menu.
-- `check.cjs`: verifies local page links and referenced assets.
-- `translations.cjs`: Russian and Uzbek translations keyed to English source text.
-- `localize.cjs`: generates language pages and language-switching links. English is in `dist/`, Russian in `dist/ru/`, and Uzbek in `dist/uz/`. Official external resource pages retain their own language.
+- `src/content/site.json`: page IDs, filenames and supported languages.
+- `src/content/en.json`, `ru.json`, `uz.json`: text, email links and metadata by stable key.
+- `src/templates/layout.html`: shared document structure.
+- `src/templates/partials/`: header, footer, closing section and language bands.
+- `src/templates/pages/`: individual page structures.
+- `src/lib/render.cjs`: template renderer and localized URL handling.
+- `src/styles/site.css`: consolidated styles, responsive layouts and accessibility rules.
+- `src/scripts/navigation.js`: mobile menu behavior.
+- `scripts/build.cjs`: static build.
+- `scripts/check.cjs`: translation, output, link, anchor and image-description checks.
+- `assets/`: original web assets; see PHOTO-CREDITS.md.
+- `dist/`: deployable website.
 
-Run the build after editing source files. The build regenerates HTML, JavaScript, and the combined stylesheet in `dist/`. Commit both source and generated output.
+## Content and translations
+
+Templates reference stable keys such as `{{t:home.a_clearer_path_to}}`. Update that key in each language file. English wording can change without breaking Russian or Uzbek. New keys must exist in all languages; missing keys fail the build. Values are escaped, so HTML markup belongs in templates.
+
+Shared partials are reused across pages. Language links preserve the current page. English pages live at the root, Russian under `ru/`, and Uzbek under `uz/`. External official resources retain their own language.
 
 ## Hosting
 
-The existing hosted site is managed through Sites; `.openai/hosting.json` identifies that project. Pushing this GitHub repository does not automatically redeploy the Sites version. Publishing to another host requires configuring that host separately.
+Any static host can serve `dist/`. The existing Sites project is identified in `.openai/hosting.json`. Pushing to GitHub does not automatically deploy the Sites version.
 
 ## Contact and privacy
 
-Contact and appointment buttons use phone/email links. There is no form backend, booking service, analytics, or application database.
+Contact links open visitors' phone/email apps. There is no inquiry backend, booking service, analytics or application database. The homepage welcome is draft copy for Kamilla to review.

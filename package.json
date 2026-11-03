@@ -4,8 +4,8 @@
   "private": true,
   "description": "Kamilla Akhmedova advocacy and support website",
   "scripts": {
-    "build": "node build.cjs",
-    "check": "node check.cjs && node --check dist/main.js"
+    "build": "node scripts/build.cjs",
+    "check": "node scripts/check.cjs && node --check src/scripts/navigation.js"
   },
   "engines": { "node": ">=18" }
 }

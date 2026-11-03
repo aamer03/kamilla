@@ -7,3 +7,6 @@ prepare-source.cjs
 simplify.cjs
 update-hero.cjs
 dist/community-connection.png
+
+.idea/
+
