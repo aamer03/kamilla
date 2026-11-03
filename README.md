@@ -20,6 +20,8 @@ The complete deployable website is in `dist/`. Any static web host can serve tha
 - `accessibility.css`: responsive layouts, readable typography, focus indicators, and accessibility overrides.
 - `navigation.js`: progressively enhanced mobile menu.
 - `check.cjs`: verifies local page links and referenced assets.
+- `translations.cjs`: Russian and Uzbek translations keyed to English source text.
+- `localize.cjs`: generates language pages and language-switching links. English is in `dist/`, Russian in `dist/ru/`, and Uzbek in `dist/uz/`. Official external resource pages retain their own language.
 
 Run the build after editing source files. The build regenerates HTML, JavaScript, and the combined stylesheet in `dist/`. Commit both source and generated output.
 

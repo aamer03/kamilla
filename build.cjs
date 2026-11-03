@@ -17,3 +17,4 @@ for(const [file,p] of Object.entries(pages))fs.writeFileSync('dist/'+file,`<!doc
 fs.copyFileSync('navigation.js','dist/main.js');
 
 fs.writeFileSync('dist/style.css',fs.readFileSync('base.css','utf8')+'\n'+fs.readFileSync('accessibility.css','utf8'));
+require('./localize.cjs');
