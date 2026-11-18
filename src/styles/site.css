@@ -999,6 +999,7 @@ header {
 
 .language-switch {
   display: flex;
+  flex-wrap: wrap;
   position: static;
   gap: 8px;
   justify-content: flex-end;

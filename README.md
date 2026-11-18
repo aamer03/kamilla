@@ -1,6 +1,6 @@
 # Kamilla Akhmedova website
 
-Static website in English, Russian and Uzbek, using HTML templates, CSS and vanilla JavaScript. Prettier and ESLint are development tools; the website has no runtime npm dependencies. Fonts load from Google Fonts.
+Static website in English, Russian, Uzbek and Spanish, using HTML templates, CSS and vanilla JavaScript. Prettier and ESLint are development tools; the website has no runtime npm dependencies. Fonts load from Google Fonts.
 
 ## Build and verify
 
@@ -11,7 +11,7 @@ npm ci
 npm run verify
 ```
 
-The build writes all 18 pages and supporting files into `dist/`. Commit source and generated output. Edit source files; rebuilding replaces generated files in `dist/`.
+The build writes all 24 pages and supporting files into `dist/`. Commit source and generated output. Edit source files; rebuilding replaces generated files in `dist/`.
 
 ## Local live preview
 
@@ -38,7 +38,7 @@ Run `npm run format` after editing, then `npm run verify` before deploying. Gene
 ## Where to edit
 
 - `src/content/site.json`: page IDs, filenames and supported languages.
-- `src/content/en.json`, `ru.json`, `uz.json`: text, email links and metadata by stable key.
+- `src/content/en.json`, `ru.json`, `uz.json`, `es.json`: text, email links and metadata by stable key.
 - `src/templates/layout.html`: shared document structure.
 - `src/templates/partials/`: header, footer, closing section and language bands.
 - `src/templates/pages/`: individual page structures.
@@ -55,7 +55,7 @@ Run `npm run format` after editing, then `npm run verify` before deploying. Gene
 
 Templates reference stable keys such as `{{t:home.a_clearer_path_to}}`. Update that key in each language file. English wording can change without breaking Russian or Uzbek. New keys must exist in all languages; missing keys fail the build. Values are escaped, so HTML markup belongs in templates.
 
-Shared partials are reused across pages. Language links preserve the current page. English pages live at the root, Russian under `ru/`, and Uzbek under `uz/`. External official resources retain their own language.
+Shared partials are reused across pages. Language links preserve the current page. English pages live at the root, Russian under `ru/`, Uzbek under `uz/`, and Spanish under `es/`. External official resources retain their own language. Website translations are separate from Kamilla's confirmed spoken languages (English, Russian and Uzbek).
 
 ## Hosting
 
