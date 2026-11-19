@@ -41,40 +41,55 @@
   <nav class="language-switch" aria-label="Язык сайта"><a href="../contact.html" lang="en" hreflang="en">English</a><a href="contact.html" lang="ru" hreflang="ru" aria-current="page">Русский</a><a href="../uz/contact.html" lang="uz" hreflang="uz">O‘zbek</a><a href="../es/contact.html" lang="es" hreflang="es">Español</a></nav>
 </header>
 
-    <main id="main" tabindex="-1"><section class="intro wrap">
-  <p class="eyebrow">СВЯЖИТЕСЬ СО МНОЙ</p>
-  <h1>Чтобы обратиться, не нужно знать все ответы.</h1>
-  <p class="lead">Задайте вопрос, договоритесь о встрече или расскажите о себе, если ищете работу.</p>
+    <main id="main" tabindex="-1"><section class="wrap contact-intro">
+  <h1>Связаться с Камиллой</h1>
 </section>
-<section class="wrap section contact-details">
-  <div class="contact-links">
-    <p class="eyebrow">СВЯЗАТЬСЯ С КАМИЛЛОЙ</p>
-    <a href="tel:+19293552787">929-355-2787</a>
-    <a class="email" href="mailto:kamillaturob@gmail.com"
-      >kamillaturob@gmail.com</a
-    >
-    <p>Нью-Йорк English · Русский · O‘zbek</p>
-    <p>О времени встречи можно договориться по телефону или электронной почте. Свяжитесь с Камиллой, чтобы уточнить доступное время.</p>
+<section
+  class="wrap section contact-inquiries"
+  aria-labelledby="inquiry-heading"
+>
+  <h2 id="inquiry-heading">С чем вы обращаетесь?</h2>
+  <div class="inquiry-chooser" data-inquiry-chooser hidden>
+    <fieldset class="inquiry-choice-group">
+      <legend class="visually-hidden">Я ищу…</legend>
+      <div class="inquiry-options">
+        <label class="inquiry-option">
+          <input
+            type="radio"
+            name="inquiry-type"
+            value="client-inquiry"
+            aria-controls="client-inquiry-form"
+          />
+          <span>Поддержку для себя или другого человека</span>
+        </label>
+        <label class="inquiry-option">
+          <input
+            type="radio"
+            name="inquiry-type"
+            value="aide-inquiry"
+            aria-controls="aide-inquiry-form"
+          />
+          <span>Работу по уходу на дому</span>
+        </label>
+      </div>
+    </fieldset>
   </div>
-  <a class="button" href="mailto:kamillaturob@gmail.com?subject=%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%BD%D0%B0%20%D0%B2%D1%81%D1%82%D1%80%D0%B5%D1%87%D1%83&amp;body=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%9A%D0%B0%D0%BC%D0%B8%D0%BB%D0%BB%D0%B0!%0A%0A%D0%AF%20%D1%85%D0%BE%D1%87%D1%83%20%D0%B4%D0%BE%D0%B3%D0%BE%D0%B2%D0%BE%D1%80%D0%B8%D1%82%D1%8C%D1%81%D1%8F%20%D0%BE%20%D0%B2%D1%81%D1%82%D1%80%D0%B5%D1%87%D0%B5.%0A%D0%A3%D0%B4%D0%BE%D0%B1%D0%BD%D1%8B%D0%B9%20%D0%B4%D0%B5%D0%BD%D1%8C%20%D0%B8%D0%BB%D0%B8%20%D0%B2%D1%80%D0%B5%D0%BC%D1%8F%3A%0A%D0%AF%D0%B7%D1%8B%D0%BA%20%D0%BE%D0%B1%D1%89%D0%B5%D0%BD%D0%B8%D1%8F%3A%0A%D0%A2%D0%B5%D0%BC%D0%B0%3A%0A%D0%9D%D0%BE%D0%BC%D0%B5%D1%80%20%D0%B4%D0%BB%D1%8F%20%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%B7%D0%B2%D0%BE%D0%BD%D0%BA%D0%B0%3A"
-    >Написать о встрече
-    <span aria-hidden="true">↗</span>
-  </a>
-</section>
-<section class="wrap section" aria-labelledby="inquiry-heading">
-  <h2 id="inquiry-heading">Как Камилла может вам помочь?</h2>
-  <p>Выберите форму, которая соответствует вашему обращению. Камилла свяжется с вами по указанным контактным данным.</p>
-  <p class="note" id="inquiry-privacy">Эти формы предназначены для первичных обращений. Не отправляйте медицинские сведения, номера Medicaid или социального страхования, финансовые данные или документы, удостоверяющие личность.</p>
   <div class="inquiry-grid">
     <form
       class="inquiry-form panel"
       name="client-inquiry"
+      data-netlify-recaptcha="true"
+      id="client-inquiry-form"
       method="POST"
       data-netlify="true"
       netlify-honeypot="bot-field"
       aria-labelledby="client-heading"
-      aria-describedby="inquiry-privacy client-intro"
+      aria-describedby="inquiry-privacy client-intro client-contact-hint"
       data-inquiry-form
+      data-captcha-required="Пройдите проверку безопасности. Если она не загружается, позвоните Камилле или напишите ей."
+      data-contact-required="Укажите номер телефона или адрес электронной почты."
+      data-email-required="Укажите адрес электронной почты, чтобы мы могли написать вам."
+      data-phone-required="Укажите номер телефона, чтобы мы могли позвонить или отправить сообщение."
       data-sending="Отправка…"
       data-success="Спасибо. Ваше обращение отправлено. Камилла свяжется с вами по указанным контактным данным."
       data-error="Не удалось подтвердить отправку. Ваши данные остались в форме. Попробуйте ещё раз или свяжитесь с Камиллой по телефону 929-355-2787 либо по адресу kamillaturob@gmail.com."
@@ -87,8 +102,8 @@
           <input name="bot-field" tabindex="-1" autocomplete="off"
         /></label>
       </p>
-      <h3 id="client-heading">Для получателей поддержки и их семей</h3>
-      <p id="client-intro">Узнайте о поддержке по программам NHTD, OPWDD или TBI для себя или близкого человека.</p>
+      <h3 id="client-heading">Получите помощь по NHTD, OPWDD или TBI</h3>
+      <p id="client-intro">Чтобы обратиться, не нужно знать все ответы.</p>
       <p class="note">Поля, отмеченные *, обязательны.</p>
       <div class="form-field">
         <label for="client-name"
@@ -103,27 +118,55 @@
         />
       </div>
       <div class="form-field">
-        <label for="client-email"
-          >Электронная почта <span aria-hidden="true">*</span></label
-        >
+        <label for="client-email">Электронная почта</label>
         <input
           id="client-email"
           name="email"
           type="email"
           autocomplete="email"
           maxlength="254"
-          required
+          aria-describedby="client-contact-hint"
         />
       </div>
       <div class="form-field">
-        <label for="client-phone">Номер телефона (необязательно)</label>
+        <label for="client-phone">Номер телефона</label>
         <input
           id="client-phone"
           name="phone"
           type="tel"
           autocomplete="tel"
           maxlength="40"
+          aria-describedby="client-contact-hint"
         />
+      </div>
+      <p class="note" id="client-contact-hint">Укажите хотя бы один способ связи: номер телефона или адрес электронной почты.</p>
+      <div class="form-field">
+        <label for="client-contact-method"
+          >Предпочитаемый способ связи <span aria-hidden="true">*</span></label
+        >
+        <select
+          id="client-contact-method"
+          name="preferred-contact-method"
+          required
+        >
+          <option value="">Выберите вариант</option>
+          <option value="Phone call">Телефонный звонок</option>
+          <option value="Text message">Текстовое сообщение</option>
+          <option value="Email">Электронная почта</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="client-relationship"
+          >Для кого вы обращаетесь? <span aria-hidden="true">*</span></label
+        >
+        <select id="client-relationship" name="inquiring-for" required>
+          <option value="">Выберите вариант</option>
+          <option value="Myself">Для себя</option>
+          <option value="Family member">Для члена семьи</option>
+          <option value="Someone I support">
+            Для человека, которому я помогаю
+          </option>
+        </select>
       </div>
       <div class="form-field">
         <label for="client-program"
@@ -161,6 +204,15 @@
         </select>
       </div>
       <p class="note">Отправляя форму, вы соглашаетесь, что Камилла может связаться с вами по поводу обращения. Отправка не подтверждает право на участие в программе, предоставление услуг, трудоустройство или запись на встречу.</p>
+      <div class="inquiry-captcha">
+  <p class="note">Перед отправкой пройдите проверку безопасности.</p>
+  <div data-inquiry-captcha data-sitekey=""></div>
+  <p class="note" data-captcha-notice role="status">
+    Проверка безопасности недоступна. Позвоните Камилле или напишите ей по электронной почте.
+  </p>
+  <noscript><p class="note">Включите JavaScript для проверки безопасности или свяжитесь с Камиллой по телефону или электронной почте.</p></noscript>
+</div>
+
       <button class="button" type="submit">Отправить запрос о поддержке</button>
       <p
         class="form-status"
@@ -173,17 +225,29 @@
     <form
       class="inquiry-form panel"
       name="aide-inquiry"
+      data-netlify-recaptcha="true"
+      id="aide-inquiry-form"
       method="POST"
       data-netlify="true"
       netlify-honeypot="bot-field"
       aria-labelledby="aide-heading"
-      aria-describedby="inquiry-privacy aide-intro"
+      aria-describedby="inquiry-privacy aide-intro aide-contact-hint"
       data-inquiry-form
+      data-certifications-required="Выберите хотя бы один сертификат или вариант Пока нет."
+      data-captcha-required="Пройдите проверку безопасности. Если она не загружается, позвоните Камилле или напишите ей."
+      data-resume-type-error="Выберите файл PDF, DOC или DOCX."
+      data-resume-size-error="Выберите файл размером не более 4 МБ."
+      data-resume-upload-error="Не удалось загрузить резюме. Ваши данные сохранены в форме. Повторите попытку или удалите резюме и отправьте запрос без него."
+      data-resume-removed="Резюме удалено."
+      data-contact-required="Укажите номер телефона или адрес электронной почты."
+      data-email-required="Укажите адрес электронной почты, чтобы мы могли написать вам."
+      data-phone-required="Укажите номер телефона, чтобы мы могли позвонить или отправить сообщение."
       data-sending="Отправка…"
       data-success="Спасибо. Ваше обращение отправлено. Камилла свяжется с вами по указанным контактным данным."
       data-error="Не удалось подтвердить отправку. Ваши данные остались в форме. Попробуйте ещё раз или свяжитесь с Камиллой по телефону 929-355-2787 либо по адресу kamillaturob@gmail.com."
     >
       <input type="hidden" name="form-name" value="aide-inquiry" />
+      <input type="hidden" name="resume-reference" value="" />
       <input type="hidden" name="website-language" value="ru" />
       <p hidden>
         <label
@@ -191,8 +255,8 @@
           <input name="bot-field" tabindex="-1" autocomplete="off"
         /></label>
       </p>
-      <h3 id="aide-heading">Для помощников по уходу на дому</h3>
-      <p id="aide-intro">Расскажите о себе, чтобы узнать о работе по уходу на дому. Возможности и требования обсуждаются индивидуально.</p>
+      <h3 id="aide-heading">Найдите работу по уходу на дому</h3>
+      <p id="aide-intro">Укажите свои контактные данные и квалификацию. Камилла свяжется с вами, чтобы обсудить доступные возможности и требования.</p>
       <p class="note">Поля, отмеченные *, обязательны.</p>
       <div class="form-field">
         <label for="aide-name"
@@ -207,38 +271,96 @@
         />
       </div>
       <div class="form-field">
-        <label for="aide-email"
-          >Электронная почта <span aria-hidden="true">*</span></label
-        >
+        <label for="aide-email">Электронная почта</label>
         <input
           id="aide-email"
           name="email"
           type="email"
           autocomplete="email"
           maxlength="254"
-          required
+          aria-describedby="aide-contact-hint"
         />
       </div>
       <div class="form-field">
-        <label for="aide-phone">Номер телефона (необязательно)</label>
+        <label for="aide-phone">Номер телефона</label>
         <input
           id="aide-phone"
           name="phone"
           type="tel"
           autocomplete="tel"
           maxlength="40"
+          aria-describedby="aide-contact-hint"
         />
       </div>
+      <p class="note" id="aide-contact-hint">Укажите хотя бы один способ связи: номер телефона или адрес электронной почты.</p>
       <div class="form-field">
-        <label for="aide-role"
-          >Ваша специализация или сертификат <span aria-hidden="true">*</span></label
+        <label for="aide-contact-method"
+          >Предпочитаемый способ связи <span aria-hidden="true">*</span></label
         >
-        <select id="aide-role" name="role" required>
+        <select
+          id="aide-contact-method"
+          name="preferred-contact-method"
+          required
+        >
           <option value="">Выберите вариант</option>
-          <option value="HHA">Помощник по медицинскому уходу на дому (HHA)</option>
-          <option value="PCA">Помощник по личному уходу (PCA)</option>
-          <option value="HHA and PCA">HHA и PCA</option>
-          <option value="Other or exploring">Другое / рассматриваю работу по уходу на дому</option>
+          <option value="Phone call">Телефонный звонок</option>
+          <option value="Text message">Текстовое сообщение</option>
+          <option value="Email">Электронная почта</option>
+        </select>
+      </div>
+      <fieldset
+        class="certification-group"
+        aria-describedby="certifications-hint"
+      >
+        <legend>Какие сертификаты у вас есть? <span aria-hidden="true">*</span></legend>
+        <p class="note" id="certifications-hint">Выберите все подходящие варианты. Если у вас пока нет сертификатов, выберите Пока нет.</p>
+        <label class="checkbox-option" for="certification-hha">
+          <input
+            id="certification-hha"
+            type="checkbox"
+            name="certifications[]"
+            value="HHA"
+          />
+          <span>Помощник по медицинскому уходу на дому (HHA)</span>
+        </label>
+        <label class="checkbox-option" for="certification-pca">
+          <input
+            id="certification-pca"
+            type="checkbox"
+            name="certifications[]"
+            value="PCA"
+          />
+          <span>Помощник по личному уходу (PCA)</span>
+        </label>
+        <label class="checkbox-option" for="certification-other">
+          <input
+            id="certification-other"
+            type="checkbox"
+            name="certifications[]"
+            value="Other"
+          />
+          <span>Другой сертификат</span>
+        </label>
+        <label class="checkbox-option" for="certification-none">
+          <input
+            id="certification-none"
+            type="checkbox"
+            name="certifications[]"
+            value="None yet"
+          />
+          <span>Пока нет</span>
+        </label>
+      </fieldset>
+      <div class="form-field">
+        <label for="aide-experience"
+          >Опыт работы по уходу на дому <span aria-hidden="true">*</span></label
+        >
+        <select id="aide-experience" name="experience" required>
+          <option value="">Выберите вариант</option>
+          <option value="New to home care">Без опыта работы по уходу на дому</option>
+          <option value="Under 1 year">Менее 1 года</option>
+          <option value="1–3 years">1–3 года</option>
+          <option value="3+ years">3 года и более</option>
         </select>
       </div>
       <div class="form-field">
@@ -264,7 +386,41 @@
           <option value="Outside NYC">За пределами города Нью-Йорка</option>
         </select>
       </div>
+      <div class="form-field">
+        <label for="aide-comments">Комментарии или вопросы (необязательно)</label>
+        <textarea
+          id="aide-comments"
+          name="comments"
+          rows="4"
+          maxlength="2000"
+        ></textarea>
+      </div>
+      <div class="form-field">
+        <label for="aide-resume">Прикрепите резюме (необязательно)</label>
+        <input
+          id="aide-resume"
+          type="file"
+          data-resume-input
+          disabled
+          accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+          aria-describedby="aide-resume-hint"
+        />
+        <p class="note" id="aide-resume-hint">PDF, DOC или DOCX, до 4 МБ. Файл хранится в закрытом хранилище для рассмотрения Камиллой. Не включайте медицинские записи, документы, удостоверяющие личность, или номера социального страхования.</p>
+        <button type="button" class="resume-remove" data-remove-resume hidden>
+          Удалить резюме
+        </button>
+        <noscript><p class="note">Чтобы прикрепить резюме, включите JavaScript. Запрос можно отправить без вложения.</p></noscript>
+      </div>
       <p class="note">Отправляя форму, вы соглашаетесь, что Камилла может связаться с вами по поводу обращения. Отправка не подтверждает право на участие в программе, предоставление услуг, трудоустройство или запись на встречу.</p>
+      <div class="inquiry-captcha">
+  <p class="note">Перед отправкой пройдите проверку безопасности.</p>
+  <div data-inquiry-captcha data-sitekey=""></div>
+  <p class="note" data-captcha-notice role="status">
+    Проверка безопасности недоступна. Позвоните Камилле или напишите ей по электронной почте.
+  </p>
+  <noscript><p class="note">Включите JavaScript для проверки безопасности или свяжитесь с Камиллой по телефону или электронной почте.</p></noscript>
+</div>
+
       <button class="button" type="submit">Отправить запрос о работе</button>
       <p
         class="form-status"
@@ -274,6 +430,133 @@
         tabindex="-1"
       ></p>
     </form>
+  </div>
+  <p class="note inquiry-privacy" id="inquiry-privacy">Эти формы предназначены для первичных обращений. Не отправляйте медицинские сведения, номера Medicaid или социального страхования, финансовые данные или документы, удостоверяющие личность.</p>
+</section>
+<section
+  class="wrap section contact-details"
+  aria-labelledby="direct-contact-heading"
+>
+  <div class="direct-contact-card">
+    <h2 id="direct-contact-heading">Позвоните или напишите Камилле</h2>
+    <div class="direct-contact-options">
+      <a class="direct-contact-link" href="tel:+19293552787">
+        <span class="direct-contact-label">Позвонить</span>
+        <span class="direct-contact-value direct-phone"
+          >929-355-2787</span
+        >
+      </a>
+      <div class="direct-email-option">
+        <a class="direct-contact-link" href="mailto:kamillaturob@gmail.com">
+          <span class="direct-contact-label">Электронная почта</span>
+          <span class="direct-contact-value"
+            >kamillaturob@gmail.com</span
+          >
+        </a>
+        <span class="copy-email" data-copy-email hidden>
+  <button
+    type="button"
+    class="copy-email-button"
+    aria-label="Скопировать email"
+    title="Скопировать email"
+    data-email="kamillaturob@gmail.com"
+    data-copied="Адрес электронной почты скопирован."
+    data-copy-failed="Не удалось скопировать автоматически. Выделите адрес выше и выберите «Копировать»."
+  >
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.8"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <rect x="8" y="8" width="12" height="13" rx="2" />
+      <path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" />
+    </svg>
+  </button>
+  <input
+    class="copy-email-fallback"
+    type="text"
+    value="kamillaturob@gmail.com"
+    aria-label="Электронная почта"
+    readonly
+    hidden
+  />
+  <span
+    class="copy-email-status"
+    role="status"
+    aria-live="polite"
+    aria-atomic="true"
+  ></span>
+</span>
+
+      </div>
+    </div>
+    <dl class="direct-contact-info">
+      <div>
+        <dt>Местоположение</dt>
+        <dd>Нью-Йорк</dd>
+      </div>
+      <div>
+        <dt>Языки общения</dt>
+        <dd>
+          <span lang="en">English</span> · <span lang="ru">Русский</span> ·
+          <span lang="uz">O‘zbek</span>
+        </dd>
+      </div>
+    </dl>
+    <div class="direct-appointment">
+      <h3>Запись на встречу</h3>
+      <p>О времени встречи можно договориться по телефону или электронной почте. Свяжитесь с Камиллой, чтобы уточнить доступное время.</p>
+      <div class="email-actions">
+        <a class="text-link" href="mailto:kamillaturob@gmail.com?subject=%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%BD%D0%B0%20%D0%B2%D1%81%D1%82%D1%80%D0%B5%D1%87%D1%83&amp;body=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%9A%D0%B0%D0%BC%D0%B8%D0%BB%D0%BB%D0%B0!%0A%0A%D0%AF%20%D1%85%D0%BE%D1%87%D1%83%20%D0%B4%D0%BE%D0%B3%D0%BE%D0%B2%D0%BE%D1%80%D0%B8%D1%82%D1%8C%D1%81%D1%8F%20%D0%BE%20%D0%B2%D1%81%D1%82%D1%80%D0%B5%D1%87%D0%B5.%0A%D0%A3%D0%B4%D0%BE%D0%B1%D0%BD%D1%8B%D0%B9%20%D0%B4%D0%B5%D0%BD%D1%8C%20%D0%B8%D0%BB%D0%B8%20%D0%B2%D1%80%D0%B5%D0%BC%D1%8F%3A%0A%D0%AF%D0%B7%D1%8B%D0%BA%20%D0%BE%D0%B1%D1%89%D0%B5%D0%BD%D0%B8%D1%8F%3A%0A%D0%A2%D0%B5%D0%BC%D0%B0%3A%0A%D0%9D%D0%BE%D0%BC%D0%B5%D1%80%20%D0%B4%D0%BB%D1%8F%20%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%B7%D0%B2%D0%BE%D0%BD%D0%BA%D0%B0%3A"
+          >Запросить встречу по электронной почте</a
+        >
+        <span class="copy-email" data-copy-email hidden>
+  <button
+    type="button"
+    class="copy-email-button"
+    aria-label="Скопировать email"
+    title="Скопировать email"
+    data-email="kamillaturob@gmail.com"
+    data-copied="Адрес электронной почты скопирован."
+    data-copy-failed="Не удалось скопировать автоматически. Выделите адрес выше и выберите «Копировать»."
+  >
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.8"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <rect x="8" y="8" width="12" height="13" rx="2" />
+      <path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" />
+    </svg>
+  </button>
+  <input
+    class="copy-email-fallback"
+    type="text"
+    value="kamillaturob@gmail.com"
+    aria-label="Электронная почта"
+    readonly
+    hidden
+  />
+  <span
+    class="copy-email-status"
+    role="status"
+    aria-live="polite"
+    aria-atomic="true"
+  ></span>
+</span>
+
+      </div>
+    </div>
   </div>
 </section>
 <script src="../forms.js" defer></script>
@@ -295,7 +578,49 @@
     </div>
     <div>
       <a href="tel:+19293552787">929-355-2787</a>
-      <a href="mailto:kamillaturob@gmail.com">kamillaturob@gmail.com</a>
+      <div class="email-actions">
+        <a href="mailto:kamillaturob@gmail.com">kamillaturob@gmail.com</a>
+        <span class="copy-email" data-copy-email hidden>
+  <button
+    type="button"
+    class="copy-email-button"
+    aria-label="Скопировать email"
+    title="Скопировать email"
+    data-email="kamillaturob@gmail.com"
+    data-copied="Адрес электронной почты скопирован."
+    data-copy-failed="Не удалось скопировать автоматически. Выделите адрес выше и выберите «Копировать»."
+  >
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.8"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <rect x="8" y="8" width="12" height="13" rx="2" />
+      <path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" />
+    </svg>
+  </button>
+  <input
+    class="copy-email-fallback"
+    type="text"
+    value="kamillaturob@gmail.com"
+    aria-label="Электронная почта"
+    readonly
+    hidden
+  />
+  <span
+    class="copy-email-status"
+    role="status"
+    aria-live="polite"
+    aria-atomic="true"
+  ></span>
+</span>
+
+      </div>
     </div>
     <div>
       <a href="https://www.linkedin.com/in/kamilla-bonu-akhmedova-300671125/"

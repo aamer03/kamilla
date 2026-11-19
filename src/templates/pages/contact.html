@@ -1,37 +1,52 @@
-<section class="intro wrap">
-  <p class="eyebrow">{{t:contact.lets_connect}}</p>
-  <h1>{{t:contact.you_dont_need_all_the_answers_to}}</h1>
-  <p class="lead">{{t:contact.ask_a_question_request_an_appointment_or}}</p>
+<section class="wrap contact-intro">
+  <h1>{{t:contact.heading}}</h1>
 </section>
-<section class="wrap section contact-details">
-  <div class="contact-links">
-    <p class="eyebrow">{{t:contact.contact_kamilla_directly}}</p>
-    <a href="tel:+19293552787">{{t:about.9293552787}}</a>
-    <a class="email" href="{{t:contact.email_0}}"
-      >{{t:about.kamillaturobgmailcom}}</a
-    >
-    <p>{{t:contact.new_york_city_english_ozbek}}</p>
-    <p>{{t:contact.appointments_are_arranged_by_phone_or_email}}</p>
-  </div>
-  <a class="button" href="{{t:contact.email_1}}"
-    >{{t:contact.request_by_email}}
-    <span aria-hidden="true">{{t:about.label_2}}</span>
-  </a>
-</section>
-<section class="wrap section" aria-labelledby="inquiry-heading">
+<section
+  class="wrap section contact-inquiries"
+  aria-labelledby="inquiry-heading"
+>
   <h2 id="inquiry-heading">{{t:forms.heading}}</h2>
-  <p>{{t:forms.intro}}</p>
-  <p class="note" id="inquiry-privacy">{{t:forms.privacy}}</p>
+  <div class="inquiry-chooser" data-inquiry-chooser hidden>
+    <fieldset class="inquiry-choice-group">
+      <legend class="visually-hidden">{{t:forms.choose_path}}</legend>
+      <div class="inquiry-options">
+        <label class="inquiry-option">
+          <input
+            type="radio"
+            name="inquiry-type"
+            value="client-inquiry"
+            aria-controls="client-inquiry-form"
+          />
+          <span>{{t:forms.choose_support}}</span>
+        </label>
+        <label class="inquiry-option">
+          <input
+            type="radio"
+            name="inquiry-type"
+            value="aide-inquiry"
+            aria-controls="aide-inquiry-form"
+          />
+          <span>{{t:forms.choose_work}}</span>
+        </label>
+      </div>
+    </fieldset>
+  </div>
   <div class="inquiry-grid">
     <form
       class="inquiry-form panel"
       name="client-inquiry"
+      data-netlify-recaptcha="true"
+      id="client-inquiry-form"
       method="POST"
       data-netlify="true"
       netlify-honeypot="bot-field"
       aria-labelledby="client-heading"
-      aria-describedby="inquiry-privacy client-intro"
+      aria-describedby="inquiry-privacy client-intro client-contact-hint"
       data-inquiry-form
+      data-captcha-required="{{t:forms.captcha_required}}"
+      data-contact-required="{{t:forms.contact_required}}"
+      data-email-required="{{t:forms.email_required}}"
+      data-phone-required="{{t:forms.phone_required}}"
       data-sending="{{t:forms.sending}}"
       data-success="{{t:forms.success}}"
       data-error="{{t:forms.error}}"
@@ -45,7 +60,7 @@
         /></label>
       </p>
       <h3 id="client-heading">{{t:forms.client_heading}}</h3>
-      <p id="client-intro">{{t:forms.client_intro}}</p>
+      <p id="client-intro">{{t:contact.you_dont_need_all_the_answers_to}}</p>
       <p class="note">{{t:forms.required_note}}</p>
       <div class="form-field">
         <label for="client-name"
@@ -60,16 +75,14 @@
         />
       </div>
       <div class="form-field">
-        <label for="client-email"
-          >{{t:forms.email}} <span aria-hidden="true">*</span></label
-        >
+        <label for="client-email">{{t:forms.email}}</label>
         <input
           id="client-email"
           name="email"
           type="email"
           autocomplete="email"
           maxlength="254"
-          required
+          aria-describedby="client-contact-hint"
         />
       </div>
       <div class="form-field">
@@ -80,7 +93,37 @@
           type="tel"
           autocomplete="tel"
           maxlength="40"
+          aria-describedby="client-contact-hint"
         />
+      </div>
+      <p class="note" id="client-contact-hint">{{t:forms.contact_hint}}</p>
+      <div class="form-field">
+        <label for="client-contact-method"
+          >{{t:forms.contact_method}} <span aria-hidden="true">*</span></label
+        >
+        <select
+          id="client-contact-method"
+          name="preferred-contact-method"
+          required
+        >
+          <option value="">{{t:forms.choose}}</option>
+          <option value="Phone call">{{t:forms.contact_call}}</option>
+          <option value="Text message">{{t:forms.contact_text}}</option>
+          <option value="Email">{{t:forms.contact_email}}</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="client-relationship"
+          >{{t:forms.relationship}} <span aria-hidden="true">*</span></label
+        >
+        <select id="client-relationship" name="inquiring-for" required>
+          <option value="">{{t:forms.choose}}</option>
+          <option value="Myself">{{t:forms.myself}}</option>
+          <option value="Family member">{{t:forms.family}}</option>
+          <option value="Someone I support">
+            {{t:forms.someone_supported}}
+          </option>
+        </select>
       </div>
       <div class="form-field">
         <label for="client-program"
@@ -118,6 +161,7 @@
         </select>
       </div>
       <p class="note">{{t:forms.permission}}</p>
+      {{captcha}}
       <button class="button" type="submit">{{t:forms.client_submit}}</button>
       <p
         class="form-status"
@@ -130,17 +174,29 @@
     <form
       class="inquiry-form panel"
       name="aide-inquiry"
+      data-netlify-recaptcha="true"
+      id="aide-inquiry-form"
       method="POST"
       data-netlify="true"
       netlify-honeypot="bot-field"
       aria-labelledby="aide-heading"
-      aria-describedby="inquiry-privacy aide-intro"
+      aria-describedby="inquiry-privacy aide-intro aide-contact-hint"
       data-inquiry-form
+      data-certifications-required="{{t:forms.certifications_required}}"
+      data-captcha-required="{{t:forms.captcha_required}}"
+      data-resume-type-error="{{t:forms.resume_type_error}}"
+      data-resume-size-error="{{t:forms.resume_size_error}}"
+      data-resume-upload-error="{{t:forms.resume_upload_error}}"
+      data-resume-removed="{{t:forms.resume_removed}}"
+      data-contact-required="{{t:forms.contact_required}}"
+      data-email-required="{{t:forms.email_required}}"
+      data-phone-required="{{t:forms.phone_required}}"
       data-sending="{{t:forms.sending}}"
       data-success="{{t:forms.success}}"
       data-error="{{t:forms.error}}"
     >
       <input type="hidden" name="form-name" value="aide-inquiry" />
+      <input type="hidden" name="resume-reference" value="" />
       <input type="hidden" name="website-language" value="{{lang}}" />
       <p hidden>
         <label
@@ -164,16 +220,14 @@
         />
       </div>
       <div class="form-field">
-        <label for="aide-email"
-          >{{t:forms.email}} <span aria-hidden="true">*</span></label
-        >
+        <label for="aide-email">{{t:forms.email}}</label>
         <input
           id="aide-email"
           name="email"
           type="email"
           autocomplete="email"
           maxlength="254"
-          required
+          aria-describedby="aide-contact-hint"
         />
       </div>
       <div class="form-field">
@@ -184,18 +238,78 @@
           type="tel"
           autocomplete="tel"
           maxlength="40"
+          aria-describedby="aide-contact-hint"
         />
       </div>
+      <p class="note" id="aide-contact-hint">{{t:forms.contact_hint}}</p>
       <div class="form-field">
-        <label for="aide-role"
-          >{{t:forms.role}} <span aria-hidden="true">*</span></label
+        <label for="aide-contact-method"
+          >{{t:forms.contact_method}} <span aria-hidden="true">*</span></label
         >
-        <select id="aide-role" name="role" required>
+        <select
+          id="aide-contact-method"
+          name="preferred-contact-method"
+          required
+        >
           <option value="">{{t:forms.choose}}</option>
-          <option value="HHA">{{t:forms.hha}}</option>
-          <option value="PCA">{{t:forms.pca}}</option>
-          <option value="HHA and PCA">{{t:forms.both}}</option>
-          <option value="Other or exploring">{{t:forms.other_role}}</option>
+          <option value="Phone call">{{t:forms.contact_call}}</option>
+          <option value="Text message">{{t:forms.contact_text}}</option>
+          <option value="Email">{{t:forms.contact_email}}</option>
+        </select>
+      </div>
+      <fieldset
+        class="certification-group"
+        aria-describedby="certifications-hint"
+      >
+        <legend>{{t:forms.role}} <span aria-hidden="true">*</span></legend>
+        <p class="note" id="certifications-hint">{{t:forms.select_all}}</p>
+        <label class="checkbox-option" for="certification-hha">
+          <input
+            id="certification-hha"
+            type="checkbox"
+            name="certifications[]"
+            value="HHA"
+          />
+          <span>{{t:forms.hha}}</span>
+        </label>
+        <label class="checkbox-option" for="certification-pca">
+          <input
+            id="certification-pca"
+            type="checkbox"
+            name="certifications[]"
+            value="PCA"
+          />
+          <span>{{t:forms.pca}}</span>
+        </label>
+        <label class="checkbox-option" for="certification-other">
+          <input
+            id="certification-other"
+            type="checkbox"
+            name="certifications[]"
+            value="Other"
+          />
+          <span>{{t:forms.other_certification}}</span>
+        </label>
+        <label class="checkbox-option" for="certification-none">
+          <input
+            id="certification-none"
+            type="checkbox"
+            name="certifications[]"
+            value="None yet"
+          />
+          <span>{{t:forms.none_yet}}</span>
+        </label>
+      </fieldset>
+      <div class="form-field">
+        <label for="aide-experience"
+          >{{t:forms.experience}} <span aria-hidden="true">*</span></label
+        >
+        <select id="aide-experience" name="experience" required>
+          <option value="">{{t:forms.choose}}</option>
+          <option value="New to home care">{{t:forms.experience_new}}</option>
+          <option value="Under 1 year">{{t:forms.experience_under_one}}</option>
+          <option value="1–3 years">{{t:forms.experience_one_three}}</option>
+          <option value="3+ years">{{t:forms.experience_three_plus}}</option>
         </select>
       </div>
       <div class="form-field">
@@ -221,7 +335,33 @@
           <option value="Outside NYC">{{t:forms.outside_nyc}}</option>
         </select>
       </div>
+      <div class="form-field">
+        <label for="aide-comments">{{t:forms.comments}}</label>
+        <textarea
+          id="aide-comments"
+          name="comments"
+          rows="4"
+          maxlength="2000"
+        ></textarea>
+      </div>
+      <div class="form-field">
+        <label for="aide-resume">{{t:forms.resume}}</label>
+        <input
+          id="aide-resume"
+          type="file"
+          data-resume-input
+          disabled
+          accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+          aria-describedby="aide-resume-hint"
+        />
+        <p class="note" id="aide-resume-hint">{{t:forms.resume_hint}}</p>
+        <button type="button" class="resume-remove" data-remove-resume hidden>
+          {{t:forms.remove_resume}}
+        </button>
+        <noscript><p class="note">{{t:forms.resume_javascript}}</p></noscript>
+      </div>
       <p class="note">{{t:forms.permission}}</p>
+      {{captcha}}
       <button class="button" type="submit">{{t:forms.aide_submit}}</button>
       <p
         class="form-status"
@@ -231,6 +371,55 @@
         tabindex="-1"
       ></p>
     </form>
+  </div>
+  <p class="note inquiry-privacy" id="inquiry-privacy">{{t:forms.privacy}}</p>
+</section>
+<section
+  class="wrap section contact-details"
+  aria-labelledby="direct-contact-heading"
+>
+  <div class="direct-contact-card">
+    <h2 id="direct-contact-heading">{{t:contact.direct_heading}}</h2>
+    <div class="direct-contact-options">
+      <a class="direct-contact-link" href="tel:+19293552787">
+        <span class="direct-contact-label">{{t:contact.call_label}}</span>
+        <span class="direct-contact-value direct-phone"
+          >{{t:about.9293552787}}</span
+        >
+      </a>
+      <div class="direct-email-option">
+        <a class="direct-contact-link" href="{{t:contact.email_0}}">
+          <span class="direct-contact-label">{{t:forms.contact_email}}</span>
+          <span class="direct-contact-value"
+            >{{t:about.kamillaturobgmailcom}}</span
+          >
+        </a>
+        {{copy_email}}
+      </div>
+    </div>
+    <dl class="direct-contact-info">
+      <div>
+        <dt>{{t:contact.location_label}}</dt>
+        <dd>{{t:contact.location}}</dd>
+      </div>
+      <div>
+        <dt>{{t:contact.languages_label}}</dt>
+        <dd>
+          <span lang="en">English</span> · <span lang="ru">Русский</span> ·
+          <span lang="uz">O‘zbek</span>
+        </dd>
+      </div>
+    </dl>
+    <div class="direct-appointment">
+      <h3>{{t:contact.appointment_heading}}</h3>
+      <p>{{t:contact.appointments_are_arranged_by_phone_or_email}}</p>
+      <div class="email-actions">
+        <a class="text-link" href="{{t:contact.email_1}}"
+          >{{t:contact.appointment_email}}</a
+        >
+        {{copy_email}}
+      </div>
+    </div>
   </div>
 </section>
 <script src="forms.js" defer></script>

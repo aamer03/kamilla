@@ -51,10 +51,52 @@
     <h2>Расскажите о себе.</h2>
     <p>Сообщите, какую работу вы ищете, кратко опишите опыт, языки общения и предпочтительный район Нью-Йорка.</p>
     <p>Уточняйте у Камиллы актуальные вакансии, требования и сведения о работодателях. Сайт не гарантирует конкретную вакансию или трудоустройство.</p>
-    <a class="button" href="mailto:kamillaturob@gmail.com?subject=%D0%92%D0%BE%D0%BF%D1%80%D0%BE%D1%81%20%D0%BE%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B5"
-      >Написать о работе
-      <span aria-hidden="true">↗</span>
-    </a>
+    <div class="email-actions">
+      <a class="button" href="mailto:kamillaturob@gmail.com?subject=%D0%92%D0%BE%D0%BF%D1%80%D0%BE%D1%81%20%D0%BE%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B5"
+        >Написать о работе
+        <span aria-hidden="true">↗</span>
+      </a>
+      <span class="copy-email" data-copy-email hidden>
+  <button
+    type="button"
+    class="copy-email-button"
+    aria-label="Скопировать email"
+    title="Скопировать email"
+    data-email="kamillaturob@gmail.com"
+    data-copied="Адрес электронной почты скопирован."
+    data-copy-failed="Не удалось скопировать автоматически. Выделите адрес выше и выберите «Копировать»."
+  >
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.8"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <rect x="8" y="8" width="12" height="13" rx="2" />
+      <path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" />
+    </svg>
+  </button>
+  <input
+    class="copy-email-fallback"
+    type="text"
+    value="kamillaturob@gmail.com"
+    aria-label="Электронная почта"
+    readonly
+    hidden
+  />
+  <span
+    class="copy-email-status"
+    role="status"
+    aria-live="polite"
+    aria-atomic="true"
+  ></span>
+</span>
+
+    </div>
   </div>
   <aside class="panel">
     <p class="eyebrow">ОСНОВНАЯ ИНФОРМАЦИЯ</p>
@@ -88,7 +130,49 @@
     </div>
     <div>
       <a href="tel:+19293552787">929-355-2787</a>
-      <a href="mailto:kamillaturob@gmail.com">kamillaturob@gmail.com</a>
+      <div class="email-actions">
+        <a href="mailto:kamillaturob@gmail.com">kamillaturob@gmail.com</a>
+        <span class="copy-email" data-copy-email hidden>
+  <button
+    type="button"
+    class="copy-email-button"
+    aria-label="Скопировать email"
+    title="Скопировать email"
+    data-email="kamillaturob@gmail.com"
+    data-copied="Адрес электронной почты скопирован."
+    data-copy-failed="Не удалось скопировать автоматически. Выделите адрес выше и выберите «Копировать»."
+  >
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.8"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <rect x="8" y="8" width="12" height="13" rx="2" />
+      <path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" />
+    </svg>
+  </button>
+  <input
+    class="copy-email-fallback"
+    type="text"
+    value="kamillaturob@gmail.com"
+    aria-label="Электронная почта"
+    readonly
+    hidden
+  />
+  <span
+    class="copy-email-status"
+    role="status"
+    aria-live="polite"
+    aria-atomic="true"
+  ></span>
+</span>
+
+      </div>
     </div>
     <div>
       <a href="https://www.linkedin.com/in/kamilla-bonu-akhmedova-300671125/"

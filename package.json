@@ -10,7 +10,9 @@
     "format": "prettier . --write",
     "format:check": "prettier . --check",
     "lint": "eslint . --max-warnings 0",
-    "verify": "npm run format:check && npm run lint && npm run build && npm run check"
+    "verify": "npm run format:check && npm run lint && npm run test:uploads && npm run test:forms && npm run build && npm run check",
+    "test:uploads": "node --test scripts/resume-upload.test.mjs",
+    "test:forms": "node --test scripts/forms-captcha.test.cjs"
   },
   "engines": {
     "node": "^20.19.0 || ^22.13.0 || >=24"
@@ -21,5 +23,8 @@
     "eslint": "10.14.0",
     "globals": "17.14.0",
     "prettier": "3.9.10"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^11.1.9"
   }
 }

@@ -41,40 +41,55 @@
   <nav class="language-switch" aria-label="Idioma del sitio web"><a href="../contact.html" lang="en" hreflang="en">English</a><a href="../ru/contact.html" lang="ru" hreflang="ru">Русский</a><a href="../uz/contact.html" lang="uz" hreflang="uz">O‘zbek</a><a href="contact.html" lang="es" hreflang="es" aria-current="page">Español</a></nav>
 </header>
 
-    <main id="main" tabindex="-1"><section class="intro wrap">
-  <p class="eyebrow">HABLEMOS</p>
-  <h1>Puede comunicarse aunque todavía tenga preguntas.</h1>
-  <p class="lead">Haga una pregunta, solicite una cita o preséntese para consultar sobre oportunidades de empleo.</p>
+    <main id="main" tabindex="-1"><section class="wrap contact-intro">
+  <h1>Contacte a Kamilla</h1>
 </section>
-<section class="wrap section contact-details">
-  <div class="contact-links">
-    <p class="eyebrow">CONTACTE DIRECTAMENTE A KAMILLA</p>
-    <a href="tel:+19293552787">929-355-2787</a>
-    <a class="email" href="mailto:kamillaturob@gmail.com"
-      >kamillaturob@gmail.com</a
-    >
-    <p>Ciudad de Nueva York · Atención en inglés, ruso y uzbeko</p>
-    <p>Las citas se coordinan por teléfono o correo electrónico. Comuníquese con Kamilla para solicitar un horario y confirmar la disponibilidad.</p>
+<section
+  class="wrap section contact-inquiries"
+  aria-labelledby="inquiry-heading"
+>
+  <h2 id="inquiry-heading">¿Qué le trae por aquí?</h2>
+  <div class="inquiry-chooser" data-inquiry-chooser hidden>
+    <fieldset class="inquiry-choice-group">
+      <legend class="visually-hidden">Estoy buscando…</legend>
+      <div class="inquiry-options">
+        <label class="inquiry-option">
+          <input
+            type="radio"
+            name="inquiry-type"
+            value="client-inquiry"
+            aria-controls="client-inquiry-form"
+          />
+          <span>Apoyo para mí o para otra persona</span>
+        </label>
+        <label class="inquiry-option">
+          <input
+            type="radio"
+            name="inquiry-type"
+            value="aide-inquiry"
+            aria-controls="aide-inquiry-form"
+          />
+          <span>Trabajo en atención domiciliaria</span>
+        </label>
+      </div>
+    </fieldset>
   </div>
-  <a class="button" href="mailto:kamillaturob@gmail.com?subject=Solicitud%20de%20cita&amp;body=Hola%20Kamilla%3A%0A%0AMe%20gustar%C3%ADa%20solicitar%20una%20cita.%0AD%C3%ADa%20u%20horario%20preferido%3A%0AIdioma%20preferido%3A%0ATema%3A%0AN%C3%BAmero%20de%20tel%C3%A9fono%20de%20contacto%3A"
-    >Solicitar por correo electrónico
-    <span aria-hidden="true">↗</span>
-  </a>
-</section>
-<section class="wrap section" aria-labelledby="inquiry-heading">
-  <h2 id="inquiry-heading">¿Cómo puede ayudarle Kamilla?</h2>
-  <p>Elija el formulario que corresponda a su consulta. Kamilla se comunicará con usted utilizando los datos de contacto que proporcione.</p>
-  <p class="note" id="inquiry-privacy">Estos formularios son para consultas iniciales. No envíe información médica, números de Medicaid o Seguro Social, datos financieros ni documentos de identidad.</p>
   <div class="inquiry-grid">
     <form
       class="inquiry-form panel"
       name="client-inquiry"
+      data-netlify-recaptcha="true"
+      id="client-inquiry-form"
       method="POST"
       data-netlify="true"
       netlify-honeypot="bot-field"
       aria-labelledby="client-heading"
-      aria-describedby="inquiry-privacy client-intro"
+      aria-describedby="inquiry-privacy client-intro client-contact-hint"
       data-inquiry-form
+      data-captcha-required="Complete la verificación de seguridad. Si no carga, llame a Kamilla o envíele un correo."
+      data-contact-required="Proporcione un número de teléfono o un correo electrónico."
+      data-email-required="Introduzca un correo electrónico para que podamos contactarle por esa vía."
+      data-phone-required="Introduzca un número de teléfono para que podamos llamarle o enviarle un mensaje."
       data-sending="Enviando…"
       data-success="Gracias. Su consulta ha sido enviada. Kamilla se comunicará con usted utilizando sus datos de contacto."
       data-error="No pudimos confirmar el envío. Sus datos siguen en el formulario. Inténtelo de nuevo o contacte a Kamilla al 929-355-2787 o a kamillaturob@gmail.com."
@@ -87,8 +102,8 @@
           <input name="bot-field" tabindex="-1" autocomplete="off"
         /></label>
       </p>
-      <h3 id="client-heading">Para personas y familias</h3>
-      <p id="client-intro">Consulte sobre el apoyo de NHTD, OPWDD o TBI para usted o alguien a quien cuida.</p>
+      <h3 id="client-heading">Obtenga ayuda con NHTD, OPWDD o TBI</h3>
+      <p id="client-intro">Puede comunicarse aunque todavía tenga preguntas.</p>
       <p class="note">Los campos marcados con * son obligatorios.</p>
       <div class="form-field">
         <label for="client-name"
@@ -103,27 +118,55 @@
         />
       </div>
       <div class="form-field">
-        <label for="client-email"
-          >Correo electrónico <span aria-hidden="true">*</span></label
-        >
+        <label for="client-email">Correo electrónico</label>
         <input
           id="client-email"
           name="email"
           type="email"
           autocomplete="email"
           maxlength="254"
-          required
+          aria-describedby="client-contact-hint"
         />
       </div>
       <div class="form-field">
-        <label for="client-phone">Número de teléfono (opcional)</label>
+        <label for="client-phone">Número de teléfono</label>
         <input
           id="client-phone"
           name="phone"
           type="tel"
           autocomplete="tel"
           maxlength="40"
+          aria-describedby="client-contact-hint"
         />
+      </div>
+      <p class="note" id="client-contact-hint">Proporcione al menos una forma de contacto: un número de teléfono o un correo electrónico.</p>
+      <div class="form-field">
+        <label for="client-contact-method"
+          >Forma de contacto preferida <span aria-hidden="true">*</span></label
+        >
+        <select
+          id="client-contact-method"
+          name="preferred-contact-method"
+          required
+        >
+          <option value="">Seleccione una opción</option>
+          <option value="Phone call">Llamada telefónica</option>
+          <option value="Text message">Mensaje de texto</option>
+          <option value="Email">Correo electrónico</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="client-relationship"
+          >¿Para quién se comunica con nosotros? <span aria-hidden="true">*</span></label
+        >
+        <select id="client-relationship" name="inquiring-for" required>
+          <option value="">Seleccione una opción</option>
+          <option value="Myself">Para mí</option>
+          <option value="Family member">Para un familiar</option>
+          <option value="Someone I support">
+            Para alguien a quien apoyo
+          </option>
+        </select>
       </div>
       <div class="form-field">
         <label for="client-program"
@@ -161,6 +204,15 @@
         </select>
       </div>
       <p class="note">Al enviar, acepta que Kamilla se comunique con usted sobre esta consulta. El envío no confirma elegibilidad, servicios, empleo ni una cita.</p>
+      <div class="inquiry-captcha">
+  <p class="note">Complete la verificación de seguridad antes de enviar.</p>
+  <div data-inquiry-captcha data-sitekey=""></div>
+  <p class="note" data-captcha-notice role="status">
+    La verificación de seguridad no está disponible. Llame a Kamilla o escríbale por correo.
+  </p>
+  <noscript><p class="note">Active JavaScript para la verificación o contacte con Kamilla por teléfono o correo.</p></noscript>
+</div>
+
       <button class="button" type="submit">Enviar consulta de apoyo</button>
       <p
         class="form-status"
@@ -173,17 +225,29 @@
     <form
       class="inquiry-form panel"
       name="aide-inquiry"
+      data-netlify-recaptcha="true"
+      id="aide-inquiry-form"
       method="POST"
       data-netlify="true"
       netlify-honeypot="bot-field"
       aria-labelledby="aide-heading"
-      aria-describedby="inquiry-privacy aide-intro"
+      aria-describedby="inquiry-privacy aide-intro aide-contact-hint"
       data-inquiry-form
+      data-certifications-required="Seleccione al menos una certificación o elija Todavía ninguna."
+      data-captcha-required="Complete la verificación de seguridad. Si no carga, llame a Kamilla o envíele un correo."
+      data-resume-type-error="Seleccione un archivo PDF, DOC o DOCX."
+      data-resume-size-error="Seleccione un archivo de hasta 4 MB."
+      data-resume-upload-error="No se pudo subir su currículum. Sus datos siguen en el formulario. Inténtelo de nuevo o quite el currículum y envíe la consulta sin adjuntarlo."
+      data-resume-removed="Currículum eliminado."
+      data-contact-required="Proporcione un número de teléfono o un correo electrónico."
+      data-email-required="Introduzca un correo electrónico para que podamos contactarle por esa vía."
+      data-phone-required="Introduzca un número de teléfono para que podamos llamarle o enviarle un mensaje."
       data-sending="Enviando…"
       data-success="Gracias. Su consulta ha sido enviada. Kamilla se comunicará con usted utilizando sus datos de contacto."
       data-error="No pudimos confirmar el envío. Sus datos siguen en el formulario. Inténtelo de nuevo o contacte a Kamilla al 929-355-2787 o a kamillaturob@gmail.com."
     >
       <input type="hidden" name="form-name" value="aide-inquiry" />
+      <input type="hidden" name="resume-reference" value="" />
       <input type="hidden" name="website-language" value="es" />
       <p hidden>
         <label
@@ -191,8 +255,8 @@
           <input name="bot-field" tabindex="-1" autocomplete="off"
         /></label>
       </p>
-      <h3 id="aide-heading">Para auxiliares de atención domiciliaria</h3>
-      <p id="aide-intro">Preséntese para consultar sobre trabajo en atención domiciliaria. Las oportunidades y los requisitos se conversarán individualmente.</p>
+      <h3 id="aide-heading">Encuentre trabajo en atención domiciliaria</h3>
+      <p id="aide-intro">Comparta sus datos de contacto y cualificaciones. Kamilla se comunicará con usted sobre las oportunidades disponibles y los requisitos.</p>
       <p class="note">Los campos marcados con * son obligatorios.</p>
       <div class="form-field">
         <label for="aide-name"
@@ -207,38 +271,96 @@
         />
       </div>
       <div class="form-field">
-        <label for="aide-email"
-          >Correo electrónico <span aria-hidden="true">*</span></label
-        >
+        <label for="aide-email">Correo electrónico</label>
         <input
           id="aide-email"
           name="email"
           type="email"
           autocomplete="email"
           maxlength="254"
-          required
+          aria-describedby="aide-contact-hint"
         />
       </div>
       <div class="form-field">
-        <label for="aide-phone">Número de teléfono (opcional)</label>
+        <label for="aide-phone">Número de teléfono</label>
         <input
           id="aide-phone"
           name="phone"
           type="tel"
           autocomplete="tel"
           maxlength="40"
+          aria-describedby="aide-contact-hint"
         />
       </div>
+      <p class="note" id="aide-contact-hint">Proporcione al menos una forma de contacto: un número de teléfono o un correo electrónico.</p>
       <div class="form-field">
-        <label for="aide-role"
-          >Su puesto o certificación <span aria-hidden="true">*</span></label
+        <label for="aide-contact-method"
+          >Forma de contacto preferida <span aria-hidden="true">*</span></label
         >
-        <select id="aide-role" name="role" required>
+        <select
+          id="aide-contact-method"
+          name="preferred-contact-method"
+          required
+        >
           <option value="">Seleccione una opción</option>
-          <option value="HHA">Auxiliar de salud en el hogar (HHA)</option>
-          <option value="PCA">Auxiliar de cuidado personal (PCA)</option>
-          <option value="HHA and PCA">HHA y PCA</option>
-          <option value="Other or exploring">Otro / explorando el trabajo en atención domiciliaria</option>
+          <option value="Phone call">Llamada telefónica</option>
+          <option value="Text message">Mensaje de texto</option>
+          <option value="Email">Correo electrónico</option>
+        </select>
+      </div>
+      <fieldset
+        class="certification-group"
+        aria-describedby="certifications-hint"
+      >
+        <legend>¿Qué certificaciones tiene actualmente? <span aria-hidden="true">*</span></legend>
+        <p class="note" id="certifications-hint">Seleccione todas las opciones que correspondan. Elija Todavía ninguna si actualmente no tiene una certificación.</p>
+        <label class="checkbox-option" for="certification-hha">
+          <input
+            id="certification-hha"
+            type="checkbox"
+            name="certifications[]"
+            value="HHA"
+          />
+          <span>Auxiliar de salud en el hogar (HHA)</span>
+        </label>
+        <label class="checkbox-option" for="certification-pca">
+          <input
+            id="certification-pca"
+            type="checkbox"
+            name="certifications[]"
+            value="PCA"
+          />
+          <span>Auxiliar de cuidado personal (PCA)</span>
+        </label>
+        <label class="checkbox-option" for="certification-other">
+          <input
+            id="certification-other"
+            type="checkbox"
+            name="certifications[]"
+            value="Other"
+          />
+          <span>Otra certificación</span>
+        </label>
+        <label class="checkbox-option" for="certification-none">
+          <input
+            id="certification-none"
+            type="checkbox"
+            name="certifications[]"
+            value="None yet"
+          />
+          <span>Todavía ninguna</span>
+        </label>
+      </fieldset>
+      <div class="form-field">
+        <label for="aide-experience"
+          >Experiencia en atención domiciliaria <span aria-hidden="true">*</span></label
+        >
+        <select id="aide-experience" name="experience" required>
+          <option value="">Seleccione una opción</option>
+          <option value="New to home care">Sin experiencia en atención domiciliaria</option>
+          <option value="Under 1 year">Menos de 1 año</option>
+          <option value="1–3 years">De 1 a 3 años</option>
+          <option value="3+ years">3 años o más</option>
         </select>
       </div>
       <div class="form-field">
@@ -264,7 +386,41 @@
           <option value="Outside NYC">Fuera de la ciudad de Nueva York</option>
         </select>
       </div>
+      <div class="form-field">
+        <label for="aide-comments">Comentarios o preguntas (opcional)</label>
+        <textarea
+          id="aide-comments"
+          name="comments"
+          rows="4"
+          maxlength="2000"
+        ></textarea>
+      </div>
+      <div class="form-field">
+        <label for="aide-resume">Adjunte su currículum (opcional)</label>
+        <input
+          id="aide-resume"
+          type="file"
+          data-resume-input
+          disabled
+          accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+          aria-describedby="aide-resume-hint"
+        />
+        <p class="note" id="aide-resume-hint">PDF, DOC o DOCX, hasta 4 MB. Se guarda de forma privada para que Kamilla lo revise. No incluya historiales médicos, documentos de identidad ni números de Seguro Social.</p>
+        <button type="button" class="resume-remove" data-remove-resume hidden>
+          Quitar currículum
+        </button>
+        <noscript><p class="note">Active JavaScript para adjuntar un currículum. Puede enviar la consulta sin adjuntos.</p></noscript>
+      </div>
       <p class="note">Al enviar, acepta que Kamilla se comunique con usted sobre esta consulta. El envío no confirma elegibilidad, servicios, empleo ni una cita.</p>
+      <div class="inquiry-captcha">
+  <p class="note">Complete la verificación de seguridad antes de enviar.</p>
+  <div data-inquiry-captcha data-sitekey=""></div>
+  <p class="note" data-captcha-notice role="status">
+    La verificación de seguridad no está disponible. Llame a Kamilla o escríbale por correo.
+  </p>
+  <noscript><p class="note">Active JavaScript para la verificación o contacte con Kamilla por teléfono o correo.</p></noscript>
+</div>
+
       <button class="button" type="submit">Enviar consulta de empleo</button>
       <p
         class="form-status"
@@ -274,6 +430,133 @@
         tabindex="-1"
       ></p>
     </form>
+  </div>
+  <p class="note inquiry-privacy" id="inquiry-privacy">Estos formularios son para consultas iniciales. No envíe información médica, números de Medicaid o Seguro Social, datos financieros ni documentos de identidad.</p>
+</section>
+<section
+  class="wrap section contact-details"
+  aria-labelledby="direct-contact-heading"
+>
+  <div class="direct-contact-card">
+    <h2 id="direct-contact-heading">Llame o escriba a Kamilla</h2>
+    <div class="direct-contact-options">
+      <a class="direct-contact-link" href="tel:+19293552787">
+        <span class="direct-contact-label">Llame</span>
+        <span class="direct-contact-value direct-phone"
+          >929-355-2787</span
+        >
+      </a>
+      <div class="direct-email-option">
+        <a class="direct-contact-link" href="mailto:kamillaturob@gmail.com">
+          <span class="direct-contact-label">Correo electrónico</span>
+          <span class="direct-contact-value"
+            >kamillaturob@gmail.com</span
+          >
+        </a>
+        <span class="copy-email" data-copy-email hidden>
+  <button
+    type="button"
+    class="copy-email-button"
+    aria-label="Copiar correo"
+    title="Copiar correo"
+    data-email="kamillaturob@gmail.com"
+    data-copied="Dirección de correo copiada."
+    data-copy-failed="No se pudo copiar automáticamente. Seleccione la dirección de arriba y elija Copiar."
+  >
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.8"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <rect x="8" y="8" width="12" height="13" rx="2" />
+      <path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" />
+    </svg>
+  </button>
+  <input
+    class="copy-email-fallback"
+    type="text"
+    value="kamillaturob@gmail.com"
+    aria-label="Correo electrónico"
+    readonly
+    hidden
+  />
+  <span
+    class="copy-email-status"
+    role="status"
+    aria-live="polite"
+    aria-atomic="true"
+  ></span>
+</span>
+
+      </div>
+    </div>
+    <dl class="direct-contact-info">
+      <div>
+        <dt>Ubicación</dt>
+        <dd>Ciudad de Nueva York</dd>
+      </div>
+      <div>
+        <dt>Idiomas de atención</dt>
+        <dd>
+          <span lang="en">English</span> · <span lang="ru">Русский</span> ·
+          <span lang="uz">O‘zbek</span>
+        </dd>
+      </div>
+    </dl>
+    <div class="direct-appointment">
+      <h3>Citas</h3>
+      <p>Las citas se coordinan por teléfono o correo electrónico. Comuníquese con Kamilla para solicitar un horario y confirmar la disponibilidad.</p>
+      <div class="email-actions">
+        <a class="text-link" href="mailto:kamillaturob@gmail.com?subject=Solicitud%20de%20cita&amp;body=Hola%20Kamilla%3A%0A%0AMe%20gustar%C3%ADa%20solicitar%20una%20cita.%0AD%C3%ADa%20u%20horario%20preferido%3A%0AIdioma%20preferido%3A%0ATema%3A%0AN%C3%BAmero%20de%20tel%C3%A9fono%20de%20contacto%3A"
+          >Solicitar una cita por correo electrónico</a
+        >
+        <span class="copy-email" data-copy-email hidden>
+  <button
+    type="button"
+    class="copy-email-button"
+    aria-label="Copiar correo"
+    title="Copiar correo"
+    data-email="kamillaturob@gmail.com"
+    data-copied="Dirección de correo copiada."
+    data-copy-failed="No se pudo copiar automáticamente. Seleccione la dirección de arriba y elija Copiar."
+  >
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.8"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <rect x="8" y="8" width="12" height="13" rx="2" />
+      <path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" />
+    </svg>
+  </button>
+  <input
+    class="copy-email-fallback"
+    type="text"
+    value="kamillaturob@gmail.com"
+    aria-label="Correo electrónico"
+    readonly
+    hidden
+  />
+  <span
+    class="copy-email-status"
+    role="status"
+    aria-live="polite"
+    aria-atomic="true"
+  ></span>
+</span>
+
+      </div>
+    </div>
   </div>
 </section>
 <script src="../forms.js" defer></script>
@@ -295,7 +578,49 @@
     </div>
     <div>
       <a href="tel:+19293552787">929-355-2787</a>
-      <a href="mailto:kamillaturob@gmail.com">kamillaturob@gmail.com</a>
+      <div class="email-actions">
+        <a href="mailto:kamillaturob@gmail.com">kamillaturob@gmail.com</a>
+        <span class="copy-email" data-copy-email hidden>
+  <button
+    type="button"
+    class="copy-email-button"
+    aria-label="Copiar correo"
+    title="Copiar correo"
+    data-email="kamillaturob@gmail.com"
+    data-copied="Dirección de correo copiada."
+    data-copy-failed="No se pudo copiar automáticamente. Seleccione la dirección de arriba y elija Copiar."
+  >
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.8"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <rect x="8" y="8" width="12" height="13" rx="2" />
+      <path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" />
+    </svg>
+  </button>
+  <input
+    class="copy-email-fallback"
+    type="text"
+    value="kamillaturob@gmail.com"
+    aria-label="Correo electrónico"
+    readonly
+    hidden
+  />
+  <span
+    class="copy-email-status"
+    role="status"
+    aria-live="polite"
+    aria-atomic="true"
+  ></span>
+</span>
+
+      </div>
     </div>
     <div>
       <a href="https://www.linkedin.com/in/kamilla-bonu-akhmedova-300671125/"

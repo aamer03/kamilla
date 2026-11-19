@@ -83,7 +83,7 @@ for (const language of languages) {
           'Missing submission language',
         );
         for (const field of form.matchAll(
-          /<(?:input|select)\b[^>]*\bid="([^"]+)"[^>]*>/g,
+          /<(?:input|select|textarea)\b[^>]*\bid="([^"]+)"[^>]*>/g,
         )) {
           assert(
             form.includes(`for="${field[1]}"`),

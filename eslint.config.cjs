@@ -12,6 +12,11 @@ module.exports = [
     languageOptions: { sourceType: 'commonjs', globals: globals.node },
   },
   {
+    files: ['netlify/**/*.mjs', 'scripts/**/*.mjs'],
+    languageOptions: { globals: globals.node },
+    rules: js.configs.recommended.rules,
+  },
+  {
     files: ['src/scripts/**/*.js'],
     languageOptions: { sourceType: 'script', globals: globals.browser },
   },

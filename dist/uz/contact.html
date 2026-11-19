@@ -41,40 +41,55 @@
   <nav class="language-switch" aria-label="Sayt tili"><a href="../contact.html" lang="en" hreflang="en">English</a><a href="../ru/contact.html" lang="ru" hreflang="ru">Русский</a><a href="contact.html" lang="uz" hreflang="uz" aria-current="page">O‘zbek</a><a href="../es/contact.html" lang="es" hreflang="es">Español</a></nav>
 </header>
 
-    <main id="main" tabindex="-1"><section class="intro wrap">
-  <p class="eyebrow">BOG‘LANING</p>
-  <h1>Murojaat qilish uchun barcha javoblarni bilishingiz shart emas.</h1>
-  <p class="lead">Savol bering, uchrashuv so‘rang yoki ish izlayotgan bo‘lsangiz, o‘zingizni tanishtiring.</p>
+    <main id="main" tabindex="-1"><section class="wrap contact-intro">
+  <h1>Kamilla bilan bog‘lanish</h1>
 </section>
-<section class="wrap section contact-details">
-  <div class="contact-links">
-    <p class="eyebrow">KAMILLA BILAN BOG‘LANISH</p>
-    <a href="tel:+19293552787">929-355-2787</a>
-    <a class="email" href="mailto:kamillaturob@gmail.com"
-      >kamillaturob@gmail.com</a
-    >
-    <p>Nyu-York shahri English · Русский · O‘zbek</p>
-    <p>Uchrashuvlar telefon yoki elektron pochta orqali kelishiladi. Qulay vaqt va mavjudlikni aniqlash uchun Kamilla bilan bog‘laning.</p>
+<section
+  class="wrap section contact-inquiries"
+  aria-labelledby="inquiry-heading"
+>
+  <h2 id="inquiry-heading">Nima maqsadda murojaat qilyapsiz?</h2>
+  <div class="inquiry-chooser" data-inquiry-chooser hidden>
+    <fieldset class="inquiry-choice-group">
+      <legend class="visually-hidden">Men izlayapman…</legend>
+      <div class="inquiry-options">
+        <label class="inquiry-option">
+          <input
+            type="radio"
+            name="inquiry-type"
+            value="client-inquiry"
+            aria-controls="client-inquiry-form"
+          />
+          <span>O‘zim yoki boshqa inson uchun yordam</span>
+        </label>
+        <label class="inquiry-option">
+          <input
+            type="radio"
+            name="inquiry-type"
+            value="aide-inquiry"
+            aria-controls="aide-inquiry-form"
+          />
+          <span>Uyda parvarish qilish bo‘yicha ish</span>
+        </label>
+      </div>
+    </fieldset>
   </div>
-  <a class="button" href="mailto:kamillaturob@gmail.com?subject=Uchrashuv%20so%E2%80%98rovi&amp;body=Salom%2C%20Kamilla!%0A%0AUchrashuv%20so%E2%80%98ramoqchiman.%0AQulay%20kun%20yoki%20vaqt%3A%0AMuloqot%20tili%3A%0AMavzu%3A%0AQayta%20qo%E2%80%98ng%E2%80%98iroq%20qilish%20uchun%20raqam%3A"
-    >Elektron pochta orqali so‘rash
-    <span aria-hidden="true">↗</span>
-  </a>
-</section>
-<section class="wrap section" aria-labelledby="inquiry-heading">
-  <h2 id="inquiry-heading">Kamilla sizga qanday yordam bera oladi?</h2>
-  <p>Murojaatingizga mos shaklni tanlang. Kamilla siz ko‘rsatgan aloqa ma’lumotlari orqali bog‘lanadi.</p>
-  <p class="note" id="inquiry-privacy">Bu shakllar dastlabki murojaatlar uchun. Tibbiy ma’lumotlar, Medicaid yoki ijtimoiy sug‘urta raqamlari, moliyaviy ma’lumotlar yoki shaxsni tasdiqlovchi hujjatlarni yubormang.</p>
   <div class="inquiry-grid">
     <form
       class="inquiry-form panel"
       name="client-inquiry"
+      data-netlify-recaptcha="true"
+      id="client-inquiry-form"
       method="POST"
       data-netlify="true"
       netlify-honeypot="bot-field"
       aria-labelledby="client-heading"
-      aria-describedby="inquiry-privacy client-intro"
+      aria-describedby="inquiry-privacy client-intro client-contact-hint"
       data-inquiry-form
+      data-captcha-required="Xavfsizlik tekshiruvidan o‘ting. U yuklanmasa, Kamillaga qo‘ng‘iroq qiling yoki email yozing."
+      data-contact-required="Telefon raqami yoki elektron pochta manzilini kiriting."
+      data-email-required="Elektron pochta orqali bog‘lanishimiz uchun manzilingizni kiriting."
+      data-phone-required="Qo‘ng‘iroq qilishimiz yoki xabar yuborishimiz uchun telefon raqamingizni kiriting."
       data-sending="Yuborilmoqda…"
       data-success="Rahmat. Murojaatingiz yuborildi. Kamilla siz ko‘rsatgan aloqa ma’lumotlari orqali bog‘lanadi."
       data-error="Yuborilganini tasdiqlay olmadik. Ma’lumotlaringiz shaklda saqlanib turibdi. Qayta urinib ko‘ring yoki Kamilla bilan 929-355-2787 raqami yoxud kamillaturob@gmail.com orqali bog‘laning."
@@ -87,8 +102,8 @@
           <input name="bot-field" tabindex="-1" autocomplete="off"
         /></label>
       </p>
-      <h3 id="client-heading">Yordam izlayotgan shaxslar va oilalar uchun</h3>
-      <p id="client-intro">O‘zingiz yoki yaqin insoningiz uchun NHTD, OPWDD yoki TBI yordami haqida so‘rang.</p>
+      <h3 id="client-heading">NHTD, OPWDD yoki TBI bo‘yicha yordam oling</h3>
+      <p id="client-intro">Murojaat qilish uchun barcha javoblarni bilishingiz shart emas.</p>
       <p class="note">* bilan belgilangan maydonlar majburiy.</p>
       <div class="form-field">
         <label for="client-name"
@@ -103,27 +118,55 @@
         />
       </div>
       <div class="form-field">
-        <label for="client-email"
-          >Elektron pochta manzili <span aria-hidden="true">*</span></label
-        >
+        <label for="client-email">Elektron pochta manzili</label>
         <input
           id="client-email"
           name="email"
           type="email"
           autocomplete="email"
           maxlength="254"
-          required
+          aria-describedby="client-contact-hint"
         />
       </div>
       <div class="form-field">
-        <label for="client-phone">Telefon raqami (ixtiyoriy)</label>
+        <label for="client-phone">Telefon raqami</label>
         <input
           id="client-phone"
           name="phone"
           type="tel"
           autocomplete="tel"
           maxlength="40"
+          aria-describedby="client-contact-hint"
         />
+      </div>
+      <p class="note" id="client-contact-hint">Kamida bitta aloqa usulini ko‘rsating: telefon raqami yoki elektron pochta manzili.</p>
+      <div class="form-field">
+        <label for="client-contact-method"
+          >Afzal ko‘rgan aloqa usulingiz <span aria-hidden="true">*</span></label
+        >
+        <select
+          id="client-contact-method"
+          name="preferred-contact-method"
+          required
+        >
+          <option value="">Variantni tanlang</option>
+          <option value="Phone call">Telefon qo‘ng‘irog‘i</option>
+          <option value="Text message">Matnli xabar</option>
+          <option value="Email">Elektron pochta</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="client-relationship"
+          >Kim uchun murojaat qilyapsiz? <span aria-hidden="true">*</span></label
+        >
+        <select id="client-relationship" name="inquiring-for" required>
+          <option value="">Variantni tanlang</option>
+          <option value="Myself">O‘zim uchun</option>
+          <option value="Family member">Oila a’zom uchun</option>
+          <option value="Someone I support">
+            Men yordam berayotgan inson uchun
+          </option>
+        </select>
       </div>
       <div class="form-field">
         <label for="client-program"
@@ -161,6 +204,15 @@
         </select>
       </div>
       <p class="note">Shaklni yuborish orqali Kamilla ushbu murojaat bo‘yicha siz bilan bog‘lanishiga rozilik bildirasiz. Yuborish dasturga muvofiqlik, xizmatlar, ishga qabul yoki uchrashuvni tasdiqlamaydi.</p>
+      <div class="inquiry-captcha">
+  <p class="note">Yuborishdan oldin xavfsizlik tekshiruvidan o‘ting.</p>
+  <div data-inquiry-captcha data-sitekey=""></div>
+  <p class="note" data-captcha-notice role="status">
+    Xavfsizlik tekshiruvi ishlamayapti. Kamillaga telefon qiling yoki email yozing.
+  </p>
+  <noscript><p class="note">Xavfsizlik tekshiruvi uchun JavaScript’ni yoqing yoki Kamillaga telefon yoki email orqali murojaat qiling.</p></noscript>
+</div>
+
       <button class="button" type="submit">Yordam haqida so‘rov yuborish</button>
       <p
         class="form-status"
@@ -173,17 +225,29 @@
     <form
       class="inquiry-form panel"
       name="aide-inquiry"
+      data-netlify-recaptcha="true"
+      id="aide-inquiry-form"
       method="POST"
       data-netlify="true"
       netlify-honeypot="bot-field"
       aria-labelledby="aide-heading"
-      aria-describedby="inquiry-privacy aide-intro"
+      aria-describedby="inquiry-privacy aide-intro aide-contact-hint"
       data-inquiry-form
+      data-certifications-required="Kamida bitta sertifikatni yoki Hozircha yo‘q variantini tanlang."
+      data-captcha-required="Xavfsizlik tekshiruvidan o‘ting. U yuklanmasa, Kamillaga qo‘ng‘iroq qiling yoki email yozing."
+      data-resume-type-error="PDF, DOC yoki DOCX faylini tanlang."
+      data-resume-size-error="Hajmi 4 MB dan oshmaydigan faylni tanlang."
+      data-resume-upload-error="Rezyumeni yuklab bo‘lmadi. Ma’lumotlaringiz shaklda saqlanib turibdi. Qayta urinib ko‘ring yoki rezyumeni olib tashlab, so‘rovni usiz yuboring."
+      data-resume-removed="Rezyume olib tashlandi."
+      data-contact-required="Telefon raqami yoki elektron pochta manzilini kiriting."
+      data-email-required="Elektron pochta orqali bog‘lanishimiz uchun manzilingizni kiriting."
+      data-phone-required="Qo‘ng‘iroq qilishimiz yoki xabar yuborishimiz uchun telefon raqamingizni kiriting."
       data-sending="Yuborilmoqda…"
       data-success="Rahmat. Murojaatingiz yuborildi. Kamilla siz ko‘rsatgan aloqa ma’lumotlari orqali bog‘lanadi."
       data-error="Yuborilganini tasdiqlay olmadik. Ma’lumotlaringiz shaklda saqlanib turibdi. Qayta urinib ko‘ring yoki Kamilla bilan 929-355-2787 raqami yoxud kamillaturob@gmail.com orqali bog‘laning."
     >
       <input type="hidden" name="form-name" value="aide-inquiry" />
+      <input type="hidden" name="resume-reference" value="" />
       <input type="hidden" name="website-language" value="uz" />
       <p hidden>
         <label
@@ -191,8 +255,8 @@
           <input name="bot-field" tabindex="-1" autocomplete="off"
         /></label>
       </p>
-      <h3 id="aide-heading">Uyda parvarish qilish xodimlari uchun</h3>
-      <p id="aide-intro">Uyda parvarish qilish bo‘yicha ish haqida so‘rash uchun o‘zingizni tanishtiring. Imkoniyatlar va talablar alohida muhokama qilinadi.</p>
+      <h3 id="aide-heading">Uyda parvarish qilish bo‘yicha ish toping</h3>
+      <p id="aide-intro">Aloqa ma’lumotlaringiz va malakangizni ko‘rsating. Kamilla mavjud imkoniyatlar va talablar haqida siz bilan bog‘lanadi.</p>
       <p class="note">* bilan belgilangan maydonlar majburiy.</p>
       <div class="form-field">
         <label for="aide-name"
@@ -207,38 +271,96 @@
         />
       </div>
       <div class="form-field">
-        <label for="aide-email"
-          >Elektron pochta manzili <span aria-hidden="true">*</span></label
-        >
+        <label for="aide-email">Elektron pochta manzili</label>
         <input
           id="aide-email"
           name="email"
           type="email"
           autocomplete="email"
           maxlength="254"
-          required
+          aria-describedby="aide-contact-hint"
         />
       </div>
       <div class="form-field">
-        <label for="aide-phone">Telefon raqami (ixtiyoriy)</label>
+        <label for="aide-phone">Telefon raqami</label>
         <input
           id="aide-phone"
           name="phone"
           type="tel"
           autocomplete="tel"
           maxlength="40"
+          aria-describedby="aide-contact-hint"
         />
       </div>
+      <p class="note" id="aide-contact-hint">Kamida bitta aloqa usulini ko‘rsating: telefon raqami yoki elektron pochta manzili.</p>
       <div class="form-field">
-        <label for="aide-role"
-          >Mutaxassisligingiz yoki sertifikatingiz <span aria-hidden="true">*</span></label
+        <label for="aide-contact-method"
+          >Afzal ko‘rgan aloqa usulingiz <span aria-hidden="true">*</span></label
         >
-        <select id="aide-role" name="role" required>
+        <select
+          id="aide-contact-method"
+          name="preferred-contact-method"
+          required
+        >
           <option value="">Variantni tanlang</option>
-          <option value="HHA">Uyda tibbiy parvarish yordamchisi (HHA)</option>
-          <option value="PCA">Shaxsiy parvarish yordamchisi (PCA)</option>
-          <option value="HHA and PCA">HHA va PCA</option>
-          <option value="Other or exploring">Boshqa / uyda parvarish qilish ishini ko‘rib chiqyapman</option>
+          <option value="Phone call">Telefon qo‘ng‘irog‘i</option>
+          <option value="Text message">Matnli xabar</option>
+          <option value="Email">Elektron pochta</option>
+        </select>
+      </div>
+      <fieldset
+        class="certification-group"
+        aria-describedby="certifications-hint"
+      >
+        <legend>Hozirda qaysi sertifikatlarga egasiz? <span aria-hidden="true">*</span></legend>
+        <p class="note" id="certifications-hint">Mos keladigan barcha variantlarni tanlang. Hozirda sertifikatingiz bo‘lmasa, Hozircha yo‘q variantini tanlang.</p>
+        <label class="checkbox-option" for="certification-hha">
+          <input
+            id="certification-hha"
+            type="checkbox"
+            name="certifications[]"
+            value="HHA"
+          />
+          <span>Uyda tibbiy parvarish yordamchisi (HHA)</span>
+        </label>
+        <label class="checkbox-option" for="certification-pca">
+          <input
+            id="certification-pca"
+            type="checkbox"
+            name="certifications[]"
+            value="PCA"
+          />
+          <span>Shaxsiy parvarish yordamchisi (PCA)</span>
+        </label>
+        <label class="checkbox-option" for="certification-other">
+          <input
+            id="certification-other"
+            type="checkbox"
+            name="certifications[]"
+            value="Other"
+          />
+          <span>Boshqa sertifikat</span>
+        </label>
+        <label class="checkbox-option" for="certification-none">
+          <input
+            id="certification-none"
+            type="checkbox"
+            name="certifications[]"
+            value="None yet"
+          />
+          <span>Hozircha yo‘q</span>
+        </label>
+      </fieldset>
+      <div class="form-field">
+        <label for="aide-experience"
+          >Uyda parvarish qilish bo‘yicha tajriba <span aria-hidden="true">*</span></label
+        >
+        <select id="aide-experience" name="experience" required>
+          <option value="">Variantni tanlang</option>
+          <option value="New to home care">Bu sohada tajribam yo‘q</option>
+          <option value="Under 1 year">1 yildan kam</option>
+          <option value="1–3 years">1–3 yil</option>
+          <option value="3+ years">3 yil yoki undan ko‘p</option>
         </select>
       </div>
       <div class="form-field">
@@ -264,7 +386,41 @@
           <option value="Outside NYC">Nyu-York shahridan tashqarida</option>
         </select>
       </div>
+      <div class="form-field">
+        <label for="aide-comments">Izohlar yoki savollar (ixtiyoriy)</label>
+        <textarea
+          id="aide-comments"
+          name="comments"
+          rows="4"
+          maxlength="2000"
+        ></textarea>
+      </div>
+      <div class="form-field">
+        <label for="aide-resume">Rezyumeni biriktiring (ixtiyoriy)</label>
+        <input
+          id="aide-resume"
+          type="file"
+          data-resume-input
+          disabled
+          accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+          aria-describedby="aide-resume-hint"
+        />
+        <p class="note" id="aide-resume-hint">PDF, DOC yoki DOCX, 4 MB gacha. Kamilla ko‘rib chiqishi uchun yopiq saqlanadi. Tibbiy yozuvlar, shaxsni tasdiqlovchi hujjatlar yoki ijtimoiy sug‘urta raqamlarini kiritmang.</p>
+        <button type="button" class="resume-remove" data-remove-resume hidden>
+          Rezyumeni olib tashlash
+        </button>
+        <noscript><p class="note">Rezyume biriktirish uchun JavaScript’ni yoqing. So‘rovni ilovasiz ham yuborishingiz mumkin.</p></noscript>
+      </div>
       <p class="note">Shaklni yuborish orqali Kamilla ushbu murojaat bo‘yicha siz bilan bog‘lanishiga rozilik bildirasiz. Yuborish dasturga muvofiqlik, xizmatlar, ishga qabul yoki uchrashuvni tasdiqlamaydi.</p>
+      <div class="inquiry-captcha">
+  <p class="note">Yuborishdan oldin xavfsizlik tekshiruvidan o‘ting.</p>
+  <div data-inquiry-captcha data-sitekey=""></div>
+  <p class="note" data-captcha-notice role="status">
+    Xavfsizlik tekshiruvi ishlamayapti. Kamillaga telefon qiling yoki email yozing.
+  </p>
+  <noscript><p class="note">Xavfsizlik tekshiruvi uchun JavaScript’ni yoqing yoki Kamillaga telefon yoki email orqali murojaat qiling.</p></noscript>
+</div>
+
       <button class="button" type="submit">Ish haqida so‘rov yuborish</button>
       <p
         class="form-status"
@@ -274,6 +430,133 @@
         tabindex="-1"
       ></p>
     </form>
+  </div>
+  <p class="note inquiry-privacy" id="inquiry-privacy">Bu shakllar dastlabki murojaatlar uchun. Tibbiy ma’lumotlar, Medicaid yoki ijtimoiy sug‘urta raqamlari, moliyaviy ma’lumotlar yoki shaxsni tasdiqlovchi hujjatlarni yubormang.</p>
+</section>
+<section
+  class="wrap section contact-details"
+  aria-labelledby="direct-contact-heading"
+>
+  <div class="direct-contact-card">
+    <h2 id="direct-contact-heading">Kamillaga qo‘ng‘iroq qiling yoki yozing</h2>
+    <div class="direct-contact-options">
+      <a class="direct-contact-link" href="tel:+19293552787">
+        <span class="direct-contact-label">Qo‘ng‘iroq qilish</span>
+        <span class="direct-contact-value direct-phone"
+          >929-355-2787</span
+        >
+      </a>
+      <div class="direct-email-option">
+        <a class="direct-contact-link" href="mailto:kamillaturob@gmail.com">
+          <span class="direct-contact-label">Elektron pochta</span>
+          <span class="direct-contact-value"
+            >kamillaturob@gmail.com</span
+          >
+        </a>
+        <span class="copy-email" data-copy-email hidden>
+  <button
+    type="button"
+    class="copy-email-button"
+    aria-label="Emailni nusxalash"
+    title="Emailni nusxalash"
+    data-email="kamillaturob@gmail.com"
+    data-copied="Email manzili nusxalandi."
+    data-copy-failed="Avtomatik nusxalab bo‘lmadi. Yuqoridagi manzilni belgilang va Nusxalashni tanlang."
+  >
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.8"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <rect x="8" y="8" width="12" height="13" rx="2" />
+      <path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" />
+    </svg>
+  </button>
+  <input
+    class="copy-email-fallback"
+    type="text"
+    value="kamillaturob@gmail.com"
+    aria-label="Elektron pochta manzili"
+    readonly
+    hidden
+  />
+  <span
+    class="copy-email-status"
+    role="status"
+    aria-live="polite"
+    aria-atomic="true"
+  ></span>
+</span>
+
+      </div>
+    </div>
+    <dl class="direct-contact-info">
+      <div>
+        <dt>Joylashuv</dt>
+        <dd>Nyu-York shahri</dd>
+      </div>
+      <div>
+        <dt>Muloqot tillari</dt>
+        <dd>
+          <span lang="en">English</span> · <span lang="ru">Русский</span> ·
+          <span lang="uz">O‘zbek</span>
+        </dd>
+      </div>
+    </dl>
+    <div class="direct-appointment">
+      <h3>Uchrashuvlar</h3>
+      <p>Uchrashuvlar telefon yoki elektron pochta orqali kelishiladi. Qulay vaqt va mavjudlikni aniqlash uchun Kamilla bilan bog‘laning.</p>
+      <div class="email-actions">
+        <a class="text-link" href="mailto:kamillaturob@gmail.com?subject=Uchrashuv%20so%E2%80%98rovi&amp;body=Salom%2C%20Kamilla!%0A%0AUchrashuv%20so%E2%80%98ramoqchiman.%0AQulay%20kun%20yoki%20vaqt%3A%0AMuloqot%20tili%3A%0AMavzu%3A%0AQayta%20qo%E2%80%98ng%E2%80%98iroq%20qilish%20uchun%20raqam%3A"
+          >Elektron pochta orqali uchrashuv so‘rash</a
+        >
+        <span class="copy-email" data-copy-email hidden>
+  <button
+    type="button"
+    class="copy-email-button"
+    aria-label="Emailni nusxalash"
+    title="Emailni nusxalash"
+    data-email="kamillaturob@gmail.com"
+    data-copied="Email manzili nusxalandi."
+    data-copy-failed="Avtomatik nusxalab bo‘lmadi. Yuqoridagi manzilni belgilang va Nusxalashni tanlang."
+  >
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.8"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <rect x="8" y="8" width="12" height="13" rx="2" />
+      <path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" />
+    </svg>
+  </button>
+  <input
+    class="copy-email-fallback"
+    type="text"
+    value="kamillaturob@gmail.com"
+    aria-label="Elektron pochta manzili"
+    readonly
+    hidden
+  />
+  <span
+    class="copy-email-status"
+    role="status"
+    aria-live="polite"
+    aria-atomic="true"
+  ></span>
+</span>
+
+      </div>
+    </div>
   </div>
 </section>
 <script src="../forms.js" defer></script>
@@ -295,7 +578,49 @@
     </div>
     <div>
       <a href="tel:+19293552787">929-355-2787</a>
-      <a href="mailto:kamillaturob@gmail.com">kamillaturob@gmail.com</a>
+      <div class="email-actions">
+        <a href="mailto:kamillaturob@gmail.com">kamillaturob@gmail.com</a>
+        <span class="copy-email" data-copy-email hidden>
+  <button
+    type="button"
+    class="copy-email-button"
+    aria-label="Emailni nusxalash"
+    title="Emailni nusxalash"
+    data-email="kamillaturob@gmail.com"
+    data-copied="Email manzili nusxalandi."
+    data-copy-failed="Avtomatik nusxalab bo‘lmadi. Yuqoridagi manzilni belgilang va Nusxalashni tanlang."
+  >
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.8"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <rect x="8" y="8" width="12" height="13" rx="2" />
+      <path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" />
+    </svg>
+  </button>
+  <input
+    class="copy-email-fallback"
+    type="text"
+    value="kamillaturob@gmail.com"
+    aria-label="Elektron pochta manzili"
+    readonly
+    hidden
+  />
+  <span
+    class="copy-email-status"
+    role="status"
+    aria-live="polite"
+    aria-atomic="true"
+  ></span>
+</span>
+
+      </div>
     </div>
     <div>
       <a href="https://www.linkedin.com/in/kamilla-bonu-akhmedova-300671125/"

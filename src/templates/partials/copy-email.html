@@ -1,0 +1,39 @@
+<span class="copy-email" data-copy-email hidden>
+  <button
+    type="button"
+    class="copy-email-button"
+    aria-label="{{t:shared.copy_email}}"
+    title="{{t:shared.copy_email}}"
+    data-email="{{t:about.kamillaturobgmailcom}}"
+    data-copied="{{t:shared.email_copied}}"
+    data-copy-failed="{{t:shared.email_copy_failed}}"
+  >
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.8"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <rect x="8" y="8" width="12" height="13" rx="2" />
+      <path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" />
+    </svg>
+  </button>
+  <input
+    class="copy-email-fallback"
+    type="text"
+    value="{{t:about.kamillaturobgmailcom}}"
+    aria-label="{{t:forms.email}}"
+    readonly
+    hidden
+  />
+  <span
+    class="copy-email-status"
+    role="status"
+    aria-live="polite"
+    aria-atomic="true"
+  ></span>
+</span>
