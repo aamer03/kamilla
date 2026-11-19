@@ -60,7 +60,7 @@
   "forms.client_submit": "Enviar consulta de apoyo",
   "forms.aide_submit": "Enviar consulta de empleo",
   "forms.sending": "Enviando…",
-  "forms.success": "Gracias. Su consulta ha sido enviada. Kamilla se comunicará con usted utilizando sus datos de contacto.",
+  "forms.success": "Kamilla se comunicará con usted usando los datos de contacto que proporcionó.",
   "forms.error": "No pudimos confirmar el envío. Sus datos siguen en el formulario. Inténtelo de nuevo o contacte a Kamilla al 929-355-2787 o a kamillaturob@gmail.com.",
   "about.skip_to_content": "Saltar al contenido",
   "about.ka": "ka.",
@@ -241,5 +241,13 @@
   "forms.captcha_prompt": "Complete la verificación de seguridad antes de enviar.",
   "forms.captcha_unavailable": "La verificación de seguridad no está disponible. Llame a Kamilla o escríbale por correo.",
   "forms.captcha_required": "Complete la verificación de seguridad. Si no carga, llame a Kamilla o envíele un correo.",
-  "forms.captcha_javascript": "Active JavaScript para la verificación o contacte con Kamilla por teléfono o correo."
+  "forms.captcha_javascript": "Active JavaScript para la verificación o contacte con Kamilla por teléfono o correo.",
+  "forms.thank_you": "Gracias, su consulta se ha enviado.",
+  "forms.sent_label": "CONSULTA ENVIADA",
+  "forms.back_home": "Volver al inicio",
+  "forms.uploading": "Subiendo su currículum…",
+  "forms.upload_complete": "Su currículum se ha subido correctamente.",
+  "forms.upload_pending": "Su consulta se envió, pero aún no se pudo adjuntar el currículum. Vuelva a intentarlo abajo o contacte con Kamilla. No envíe la consulta otra vez.",
+  "forms.retry_upload": "Reintentar subir el currículum",
+  "shared.social_image_alt": "Kamilla Akhmedova — orientación sobre NHTD, TBI y OPWDD en Nueva York"
 }

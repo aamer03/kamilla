@@ -48,7 +48,63 @@ inquiryForms.forEach((form) => {
   const resume = form.querySelector('[data-resume-input]');
   const removeResume = form.querySelector('[data-remove-resume]');
   const resumeReference = form.querySelector('[name="resume-reference"]');
+  const uploadToken = form.querySelector('[name="resume-upload-token"]');
+  const fields = form.querySelector('[data-inquiry-fields]');
+  const confirmation = form.querySelector('[data-inquiry-success]');
+  const uploadStatus = form.querySelector('[data-upload-status]');
+  const retryUpload = form.querySelector('[data-retry-upload]');
+  let inquirySent = false;
+  let pendingResumeFile;
   if (resume) resume.disabled = false;
+
+  async function uploadVerifiedResume() {
+    if (!pendingResumeFile) return;
+    uploadStatus.hidden = false;
+    uploadStatus.textContent = form.dataset.uploading;
+    uploadStatus.removeAttribute('data-error');
+    retryUpload.hidden = true;
+    retryUpload.disabled = true;
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 30000);
+    try {
+      for (let attempt = 0; attempt < 5; attempt++) {
+        const body = new FormData();
+        body.append('resume', pendingResumeFile);
+        const response = await fetch('/api/resume-upload', {
+          method: 'POST',
+          headers: {
+            'X-Resume-Upload': '1',
+            'X-Resume-Permit': uploadToken.value,
+            'X-Resume-Reference': resumeReference.value,
+          },
+          body,
+          signal: controller.signal,
+        });
+        if (response.status === 425 && attempt < 4) {
+          await new Promise((resolve) =>
+            setTimeout(resolve, 1000 * (attempt + 1)),
+          );
+          continue;
+        }
+        if (!response.ok) throw new Error('Upload not accepted');
+        const result = await response.json();
+        if (result.reference !== resumeReference.value)
+          throw new Error('Reference mismatch');
+        uploadStatus.textContent = form.dataset.uploadComplete;
+        pendingResumeFile = undefined;
+        form.reset();
+        return;
+      }
+    } catch {
+      uploadStatus.textContent = form.dataset.uploadPending;
+      uploadStatus.dataset.error = 'true';
+      retryUpload.hidden = false;
+    } finally {
+      clearTimeout(timer);
+      retryUpload.disabled = false;
+    }
+  }
+  retryUpload.addEventListener('click', uploadVerifiedResume);
 
   function validateResume() {
     if (!resume) return;
@@ -125,7 +181,7 @@ inquiryForms.forEach((form) => {
 
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
-    if (button.disabled) return;
+    if (button.disabled || inquirySent) return;
     validateContact();
     validateCertifications();
     validateResume();
@@ -156,23 +212,15 @@ inquiryForms.forEach((form) => {
     }
 
     try {
-      if (resume?.files.length && !resumeReference.value) {
-        failureMessage = form.dataset.resumeUploadError;
-        const upload = new FormData();
-        upload.append('resume', resume.files[0]);
-        const uploaded = await fetch('/api/resume-upload', {
-          method: 'POST',
-          headers: { 'X-Resume-Upload': '1' },
-          body: upload,
-          signal: controller.signal,
-        });
-        if (!uploaded.ok) throw new Error('Upload was not accepted');
-        const result = await uploaded.json();
-        if (!/^[0-9a-f-]{36}$/.test(result.reference))
-          throw new Error('Invalid upload reference');
-        resumeReference.value = result.reference;
+      if (resume?.files.length) {
+        pendingResumeFile = resume.files[0];
+        resumeReference.value = window.crypto.randomUUID();
+        uploadToken.value = [
+          ...window.crypto.getRandomValues(new Uint8Array(32)),
+        ]
+          .map((byte) => byte.toString(16).padStart(2, '0'))
+          .join('');
       }
-      failureMessage = form.dataset.error;
       const data = new FormData(form);
       const captchaResponse = window.grecaptcha.getResponse(widget);
       if (!captchaResponse) {
@@ -189,10 +237,15 @@ inquiryForms.forEach((form) => {
       });
       if (!response.ok) throw new Error('Submission was not accepted');
 
-      form.reset();
-      if (removeResume) removeResume.hidden = true;
-      status.textContent = form.dataset.success;
-      button.hidden = true;
+      inquirySent = true;
+      fields.hidden = true;
+      confirmation.hidden = false;
+      form.removeAttribute('aria-labelledby');
+      form.removeAttribute('aria-describedby');
+      form.setAttribute('aria-label', confirmation.getAttribute('aria-label'));
+      confirmation.focus();
+      if (pendingResumeFile) await uploadVerifiedResume();
+      else form.reset();
     } catch {
       window.grecaptcha.reset(widget);
       status.textContent = failureMessage;
@@ -206,7 +259,7 @@ inquiryForms.forEach((form) => {
         resume.disabled = false;
         removeResume.disabled = false;
       }
-      status.focus();
+      if (!inquirySent) status.focus();
     }
   });
 });

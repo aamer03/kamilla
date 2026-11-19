@@ -1,11 +1,17 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { renderPage } = require('../src/lib/render.cjs');
+const { origin, sitemap } = require('../src/lib/seo.cjs');
 
 const root = path.resolve(__dirname, '..');
 const output = path.join(root, 'dist');
 const config = require('../src/content/site.json');
 fs.mkdirSync(output, { recursive: true });
+fs.writeFileSync(path.join(output, 'sitemap.xml'), sitemap());
+fs.writeFileSync(
+  path.join(output, 'robots.txt'),
+  `User-agent: *\nAllow: /\n\nSitemap: ${origin}/sitemap.xml\n`,
+);
 fs.cpSync(path.join(root, 'assets'), path.join(output, 'assets'), {
   recursive: true,
 });

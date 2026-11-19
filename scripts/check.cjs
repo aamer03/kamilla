@@ -2,6 +2,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const assert = require('node:assert/strict');
 const { renderPage } = require('../src/lib/render.cjs');
+const { origin, pageUrl, sitemap } = require('../src/lib/seo.cjs');
 const root = path.resolve(__dirname, '..');
 const output = path.join(root, 'dist');
 const config = require('../src/content/site.json');
@@ -41,6 +42,28 @@ for (const language of languages) {
       'Expected one main landmark',
     );
     assert(!html.includes('{{'), 'Unresolved template token');
+    const canonical = pageUrl(page, language);
+    assert(
+      html.includes(`rel="canonical" href="${canonical}"`),
+      'Missing canonical URL',
+    );
+    assert(
+      html.includes(`property="og:url" content="${canonical}"`),
+      'Incorrect share URL',
+    );
+    assert(
+      html.includes('name="twitter:card" content="summary_large_image"'),
+      'Missing social card',
+    );
+    const schema = JSON.parse(
+      html.match(
+        /<script type="application\/ld\+json">([\s\S]*?)<\/script>/,
+      )[1],
+    );
+    assert.equal(
+      schema['@graph'].find((entity) => entity['@type'] === 'WebPage').url,
+      canonical,
+    );
     for (const match of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
       const url = match[1];
       if (/^(https?:|mailto:|tel:|#)/.test(url)) continue;
@@ -97,4 +120,22 @@ for (const language of languages) {
 }
 console.log(
   `${count} pages checked: translations, output, links, anchors, and image descriptions.`,
+);
+assert.equal(
+  fs.readFileSync(path.join(output, 'sitemap.xml'), 'utf8'),
+  sitemap(),
+  'Stale sitemap',
+);
+assert.equal(
+  (sitemap().match(/<loc>/g) || []).length,
+  config.pages.length * languages.length,
+);
+assert(
+  fs
+    .readFileSync(path.join(output, 'robots.txt'), 'utf8')
+    .includes(`Sitemap: ${origin}/sitemap.xml`),
+);
+assert(
+  fs.existsSync(path.join(output, 'assets/social-preview.png')),
+  'Missing sharing image',
 );

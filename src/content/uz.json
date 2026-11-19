@@ -60,7 +60,7 @@
   "forms.client_submit": "Yordam haqida so‘rov yuborish",
   "forms.aide_submit": "Ish haqida so‘rov yuborish",
   "forms.sending": "Yuborilmoqda…",
-  "forms.success": "Rahmat. Murojaatingiz yuborildi. Kamilla siz ko‘rsatgan aloqa ma’lumotlari orqali bog‘lanadi.",
+  "forms.success": "Kamilla siz ko‘rsatgan aloqa ma’lumotlari orqali bog‘lanadi.",
   "forms.error": "Yuborilganini tasdiqlay olmadik. Ma’lumotlaringiz shaklda saqlanib turibdi. Qayta urinib ko‘ring yoki Kamilla bilan 929-355-2787 raqami yoxud kamillaturob@gmail.com orqali bog‘laning.",
   "about.skip_to_content": "Asosiy mazmunga o‘tish",
   "about.ka": "ka.",
@@ -241,5 +241,13 @@
   "forms.captcha_prompt": "Yuborishdan oldin xavfsizlik tekshiruvidan o‘ting.",
   "forms.captcha_unavailable": "Xavfsizlik tekshiruvi ishlamayapti. Kamillaga telefon qiling yoki email yozing.",
   "forms.captcha_required": "Xavfsizlik tekshiruvidan o‘ting. U yuklanmasa, Kamillaga qo‘ng‘iroq qiling yoki email yozing.",
-  "forms.captcha_javascript": "Xavfsizlik tekshiruvi uchun JavaScript’ni yoqing yoki Kamillaga telefon yoki email orqali murojaat qiling."
+  "forms.captcha_javascript": "Xavfsizlik tekshiruvi uchun JavaScript’ni yoqing yoki Kamillaga telefon yoki email orqali murojaat qiling.",
+  "forms.thank_you": "Rahmat, so‘rovingiz yuborildi.",
+  "forms.sent_label": "SO‘ROV YUBORILDI",
+  "forms.back_home": "Bosh sahifaga",
+  "forms.uploading": "Rezyumengiz yuklanmoqda…",
+  "forms.upload_complete": "Rezyumengiz muvaffaqiyatli yuklandi.",
+  "forms.upload_pending": "So‘rovingiz yuborildi, lekin rezyumeni hozircha biriktirib bo‘lmadi. Quyida qayta urinib ko‘ring yoki Kamilla bilan bog‘laning. So‘rovni qayta yubormang.",
+  "forms.retry_upload": "Rezyumeni qayta yuklash",
+  "shared.social_image_alt": "Kamilla Akhmedova — Nyu-Yorkda NHTD, TBI va OPWDD bo‘yicha yordam"
 }

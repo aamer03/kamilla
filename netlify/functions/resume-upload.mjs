@@ -1,5 +1,5 @@
 import { getStore } from '@netlify/blobs';
-import { randomUUID } from 'node:crypto';
+import { createHash } from 'node:crypto';
 
 const maxBytes = 4 * 1024 * 1024;
 const headers = {
@@ -15,6 +15,9 @@ function reply(status, body) {
 // The store factory is injectable so tests never write real applicant data.
 export function createHandler(
   storeFactory = () => getStore('private-resumes'),
+  permitStoreFactory = () =>
+    getStore({ name: 'resume-upload-permits', consistency: 'strong' }),
+  now = Date.now,
 ) {
   return async (request) => {
     if (request.method !== 'POST') return reply(405, { error: 'method' });
@@ -34,6 +37,23 @@ export function createHandler(
     }
 
     try {
+      const token = request.headers.get('x-resume-permit') || '';
+      const reference = request.headers.get('x-resume-reference') || '';
+      if (!/^[a-f0-9]{64}$/.test(token) || !/^[a-f0-9-]{36}$/.test(reference)) {
+        return reply(403, { error: 'verification' });
+      }
+      const permit = await permitStoreFactory().get(
+        createHash('sha256').update(token).digest('hex'),
+        { type: 'json' },
+      );
+      if (!permit) return reply(425, { error: 'verification-pending' });
+      if (
+        permit.reference !== reference ||
+        !Number.isFinite(permit.expiresAt) ||
+        permit.expiresAt <= now()
+      ) {
+        return reply(403, { error: 'verification' });
+      }
       // Bound memory even when Content-Length is missing or untrusted.
       const reader = request.body?.getReader();
       if (!reader) return reply(400, { error: 'file' });
@@ -87,8 +107,8 @@ export function createHandler(
       ) {
         return reply(415, { error: 'type' });
       }
-      const reference = randomUUID();
       await storeFactory().set(reference, bytes.buffer, {
+        onlyIfNew: true,
         metadata: {
           filename: file.name.slice(0, 200),
           contentType: type[0],
@@ -107,5 +127,5 @@ export default createHandler();
 
 export const config = {
   path: '/api/resume-upload',
-  rateLimit: { windowLimit: 5, windowSize: 60, aggregateBy: ['ip', 'domain'] },
+  rateLimit: { windowLimit: 10, windowSize: 60, aggregateBy: ['ip', 'domain'] },
 };

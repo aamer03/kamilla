@@ -51,125 +51,128 @@
       data-success="{{t:forms.success}}"
       data-error="{{t:forms.error}}"
     >
-      <input type="hidden" name="form-name" value="client-inquiry" />
-      <input type="hidden" name="website-language" value="{{lang}}" />
-      <p hidden>
-        <label
-          >Leave this field empty
-          <input name="bot-field" tabindex="-1" autocomplete="off"
-        /></label>
-      </p>
-      <h3 id="client-heading">{{t:forms.client_heading}}</h3>
-      <p id="client-intro">{{t:contact.you_dont_need_all_the_answers_to}}</p>
-      <p class="note">{{t:forms.required_note}}</p>
-      <div class="form-field">
-        <label for="client-name"
-          >{{t:forms.name}} <span aria-hidden="true">*</span></label
-        >
-        <input
-          id="client-name"
-          name="name"
-          autocomplete="name"
-          maxlength="120"
-          required
-        />
+      <div data-inquiry-fields>
+        <input type="hidden" name="form-name" value="client-inquiry" />
+        <input type="hidden" name="website-language" value="{{lang}}" />
+        <p hidden>
+          <label
+            >Leave this field empty
+            <input name="bot-field" tabindex="-1" autocomplete="off"
+          /></label>
+        </p>
+        <h3 id="client-heading">{{t:forms.client_heading}}</h3>
+        <p id="client-intro">{{t:contact.you_dont_need_all_the_answers_to}}</p>
+        <p class="note">{{t:forms.required_note}}</p>
+        <div class="form-field">
+          <label for="client-name"
+            >{{t:forms.name}} <span aria-hidden="true">*</span></label
+          >
+          <input
+            id="client-name"
+            name="name"
+            autocomplete="name"
+            maxlength="120"
+            required
+          />
+        </div>
+        <div class="form-field">
+          <label for="client-email">{{t:forms.email}}</label>
+          <input
+            id="client-email"
+            name="email"
+            type="email"
+            autocomplete="email"
+            maxlength="254"
+            aria-describedby="client-contact-hint"
+          />
+        </div>
+        <div class="form-field">
+          <label for="client-phone">{{t:forms.phone}}</label>
+          <input
+            id="client-phone"
+            name="phone"
+            type="tel"
+            autocomplete="tel"
+            maxlength="40"
+            aria-describedby="client-contact-hint"
+          />
+        </div>
+        <p class="note" id="client-contact-hint">{{t:forms.contact_hint}}</p>
+        <div class="form-field">
+          <label for="client-contact-method"
+            >{{t:forms.contact_method}} <span aria-hidden="true">*</span></label
+          >
+          <select
+            id="client-contact-method"
+            name="preferred-contact-method"
+            required
+          >
+            <option value="">{{t:forms.choose}}</option>
+            <option value="Phone call">{{t:forms.contact_call}}</option>
+            <option value="Text message">{{t:forms.contact_text}}</option>
+            <option value="Email">{{t:forms.contact_email}}</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="client-relationship"
+            >{{t:forms.relationship}} <span aria-hidden="true">*</span></label
+          >
+          <select id="client-relationship" name="inquiring-for" required>
+            <option value="">{{t:forms.choose}}</option>
+            <option value="Myself">{{t:forms.myself}}</option>
+            <option value="Family member">{{t:forms.family}}</option>
+            <option value="Someone I support">
+              {{t:forms.someone_supported}}
+            </option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="client-program"
+            >{{t:forms.program}} <span aria-hidden="true">*</span></label
+          >
+          <select id="client-program" name="program" required>
+            <option value="">{{t:forms.choose}}</option>
+            <option value="NHTD">NHTD</option>
+            <option value="OPWDD">OPWDD</option>
+            <option value="TBI">TBI</option>
+            <option value="Not sure">{{t:forms.not_sure}}</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="client-language">{{t:forms.language}}</label>
+          <select id="client-language" name="preferred-language">
+            <option value="">{{t:forms.choose}}</option>
+            <option value="English">English</option>
+            <option value="Russian">Русский</option>
+            <option value="Uzbek">O‘zbek</option>
+            <option value="Spanish">Español</option>
+            <option value="Other">{{t:forms.other}}</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="client-borough">{{t:forms.borough}}</label>
+          <select id="client-borough" name="borough">
+            <option value="">{{t:forms.choose}}</option>
+            <option value="Brooklyn">Brooklyn</option>
+            <option value="Queens">Queens</option>
+            <option value="Manhattan">Manhattan</option>
+            <option value="Bronx">Bronx</option>
+            <option value="Staten Island">Staten Island</option>
+            <option value="Outside NYC">{{t:forms.outside_nyc}}</option>
+          </select>
+        </div>
+        <p class="note">{{t:forms.permission}}</p>
+        {{captcha}}
+        <button class="button" type="submit">{{t:forms.client_submit}}</button>
+        <p
+          class="form-status"
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+          tabindex="-1"
+        ></p>
       </div>
-      <div class="form-field">
-        <label for="client-email">{{t:forms.email}}</label>
-        <input
-          id="client-email"
-          name="email"
-          type="email"
-          autocomplete="email"
-          maxlength="254"
-          aria-describedby="client-contact-hint"
-        />
-      </div>
-      <div class="form-field">
-        <label for="client-phone">{{t:forms.phone}}</label>
-        <input
-          id="client-phone"
-          name="phone"
-          type="tel"
-          autocomplete="tel"
-          maxlength="40"
-          aria-describedby="client-contact-hint"
-        />
-      </div>
-      <p class="note" id="client-contact-hint">{{t:forms.contact_hint}}</p>
-      <div class="form-field">
-        <label for="client-contact-method"
-          >{{t:forms.contact_method}} <span aria-hidden="true">*</span></label
-        >
-        <select
-          id="client-contact-method"
-          name="preferred-contact-method"
-          required
-        >
-          <option value="">{{t:forms.choose}}</option>
-          <option value="Phone call">{{t:forms.contact_call}}</option>
-          <option value="Text message">{{t:forms.contact_text}}</option>
-          <option value="Email">{{t:forms.contact_email}}</option>
-        </select>
-      </div>
-      <div class="form-field">
-        <label for="client-relationship"
-          >{{t:forms.relationship}} <span aria-hidden="true">*</span></label
-        >
-        <select id="client-relationship" name="inquiring-for" required>
-          <option value="">{{t:forms.choose}}</option>
-          <option value="Myself">{{t:forms.myself}}</option>
-          <option value="Family member">{{t:forms.family}}</option>
-          <option value="Someone I support">
-            {{t:forms.someone_supported}}
-          </option>
-        </select>
-      </div>
-      <div class="form-field">
-        <label for="client-program"
-          >{{t:forms.program}} <span aria-hidden="true">*</span></label
-        >
-        <select id="client-program" name="program" required>
-          <option value="">{{t:forms.choose}}</option>
-          <option value="NHTD">NHTD</option>
-          <option value="OPWDD">OPWDD</option>
-          <option value="TBI">TBI</option>
-          <option value="Not sure">{{t:forms.not_sure}}</option>
-        </select>
-      </div>
-      <div class="form-field">
-        <label for="client-language">{{t:forms.language}}</label>
-        <select id="client-language" name="preferred-language">
-          <option value="">{{t:forms.choose}}</option>
-          <option value="English">English</option>
-          <option value="Russian">Русский</option>
-          <option value="Uzbek">O‘zbek</option>
-          <option value="Spanish">Español</option>
-          <option value="Other">{{t:forms.other}}</option>
-        </select>
-      </div>
-      <div class="form-field">
-        <label for="client-borough">{{t:forms.borough}}</label>
-        <select id="client-borough" name="borough">
-          <option value="">{{t:forms.choose}}</option>
-          <option value="Brooklyn">Brooklyn</option>
-          <option value="Queens">Queens</option>
-          <option value="Manhattan">Manhattan</option>
-          <option value="Bronx">Bronx</option>
-          <option value="Staten Island">Staten Island</option>
-          <option value="Outside NYC">{{t:forms.outside_nyc}}</option>
-        </select>
-      </div>
-      <p class="note">{{t:forms.permission}}</p>
-      {{captcha}}
-      <button class="button" type="submit">{{t:forms.client_submit}}</button>
-      <p
-        class="form-status"
-        role="status"
-        aria-live="polite"
-        aria-atomic="true"
-        tabindex="-1"
-      ></p>
+      {{inquiry_success}}
     </form>
     <form
       class="inquiry-form panel"
@@ -188,6 +191,9 @@
       data-resume-size-error="{{t:forms.resume_size_error}}"
       data-resume-upload-error="{{t:forms.resume_upload_error}}"
       data-resume-removed="{{t:forms.resume_removed}}"
+      data-uploading="{{t:forms.uploading}}"
+      data-upload-complete="{{t:forms.upload_complete}}"
+      data-upload-pending="{{t:forms.upload_pending}}"
       data-contact-required="{{t:forms.contact_required}}"
       data-email-required="{{t:forms.email_required}}"
       data-phone-required="{{t:forms.phone_required}}"
@@ -195,181 +201,187 @@
       data-success="{{t:forms.success}}"
       data-error="{{t:forms.error}}"
     >
-      <input type="hidden" name="form-name" value="aide-inquiry" />
-      <input type="hidden" name="resume-reference" value="" />
-      <input type="hidden" name="website-language" value="{{lang}}" />
-      <p hidden>
-        <label
-          >Leave this field empty
-          <input name="bot-field" tabindex="-1" autocomplete="off"
-        /></label>
-      </p>
-      <h3 id="aide-heading">{{t:forms.aide_heading}}</h3>
-      <p id="aide-intro">{{t:forms.aide_intro}}</p>
-      <p class="note">{{t:forms.required_note}}</p>
-      <div class="form-field">
-        <label for="aide-name"
-          >{{t:forms.name}} <span aria-hidden="true">*</span></label
-        >
-        <input
-          id="aide-name"
-          name="name"
-          autocomplete="name"
-          maxlength="120"
-          required
-        />
-      </div>
-      <div class="form-field">
-        <label for="aide-email">{{t:forms.email}}</label>
-        <input
-          id="aide-email"
-          name="email"
-          type="email"
-          autocomplete="email"
-          maxlength="254"
-          aria-describedby="aide-contact-hint"
-        />
-      </div>
-      <div class="form-field">
-        <label for="aide-phone">{{t:forms.phone}}</label>
-        <input
-          id="aide-phone"
-          name="phone"
-          type="tel"
-          autocomplete="tel"
-          maxlength="40"
-          aria-describedby="aide-contact-hint"
-        />
-      </div>
-      <p class="note" id="aide-contact-hint">{{t:forms.contact_hint}}</p>
-      <div class="form-field">
-        <label for="aide-contact-method"
-          >{{t:forms.contact_method}} <span aria-hidden="true">*</span></label
-        >
-        <select
-          id="aide-contact-method"
-          name="preferred-contact-method"
-          required
-        >
-          <option value="">{{t:forms.choose}}</option>
-          <option value="Phone call">{{t:forms.contact_call}}</option>
-          <option value="Text message">{{t:forms.contact_text}}</option>
-          <option value="Email">{{t:forms.contact_email}}</option>
-        </select>
-      </div>
-      <fieldset
-        class="certification-group"
-        aria-describedby="certifications-hint"
-      >
-        <legend>{{t:forms.role}} <span aria-hidden="true">*</span></legend>
-        <p class="note" id="certifications-hint">{{t:forms.select_all}}</p>
-        <label class="checkbox-option" for="certification-hha">
+      <div data-inquiry-fields>
+        <input type="hidden" name="form-name" value="aide-inquiry" />
+        <input type="hidden" name="resume-reference" value="" />
+        <input type="hidden" name="resume-upload-token" value="" />
+        <input type="hidden" name="website-language" value="{{lang}}" />
+        <p hidden>
+          <label
+            >Leave this field empty
+            <input name="bot-field" tabindex="-1" autocomplete="off"
+          /></label>
+        </p>
+        <h3 id="aide-heading">{{t:forms.aide_heading}}</h3>
+        <p id="aide-intro">{{t:forms.aide_intro}}</p>
+        <p class="note">{{t:forms.required_note}}</p>
+        <div class="form-field">
+          <label for="aide-name"
+            >{{t:forms.name}} <span aria-hidden="true">*</span></label
+          >
           <input
-            id="certification-hha"
-            type="checkbox"
-            name="certifications[]"
-            value="HHA"
+            id="aide-name"
+            name="name"
+            autocomplete="name"
+            maxlength="120"
+            required
           />
-          <span>{{t:forms.hha}}</span>
-        </label>
-        <label class="checkbox-option" for="certification-pca">
+        </div>
+        <div class="form-field">
+          <label for="aide-email">{{t:forms.email}}</label>
           <input
-            id="certification-pca"
-            type="checkbox"
-            name="certifications[]"
-            value="PCA"
+            id="aide-email"
+            name="email"
+            type="email"
+            autocomplete="email"
+            maxlength="254"
+            aria-describedby="aide-contact-hint"
           />
-          <span>{{t:forms.pca}}</span>
-        </label>
-        <label class="checkbox-option" for="certification-other">
+        </div>
+        <div class="form-field">
+          <label for="aide-phone">{{t:forms.phone}}</label>
           <input
-            id="certification-other"
-            type="checkbox"
-            name="certifications[]"
-            value="Other"
+            id="aide-phone"
+            name="phone"
+            type="tel"
+            autocomplete="tel"
+            maxlength="40"
+            aria-describedby="aide-contact-hint"
           />
-          <span>{{t:forms.other_certification}}</span>
-        </label>
-        <label class="checkbox-option" for="certification-none">
-          <input
-            id="certification-none"
-            type="checkbox"
-            name="certifications[]"
-            value="None yet"
-          />
-          <span>{{t:forms.none_yet}}</span>
-        </label>
-      </fieldset>
-      <div class="form-field">
-        <label for="aide-experience"
-          >{{t:forms.experience}} <span aria-hidden="true">*</span></label
+        </div>
+        <p class="note" id="aide-contact-hint">{{t:forms.contact_hint}}</p>
+        <div class="form-field">
+          <label for="aide-contact-method"
+            >{{t:forms.contact_method}} <span aria-hidden="true">*</span></label
+          >
+          <select
+            id="aide-contact-method"
+            name="preferred-contact-method"
+            required
+          >
+            <option value="">{{t:forms.choose}}</option>
+            <option value="Phone call">{{t:forms.contact_call}}</option>
+            <option value="Text message">{{t:forms.contact_text}}</option>
+            <option value="Email">{{t:forms.contact_email}}</option>
+          </select>
+        </div>
+        <fieldset
+          class="certification-group"
+          aria-describedby="certifications-hint"
         >
-        <select id="aide-experience" name="experience" required>
-          <option value="">{{t:forms.choose}}</option>
-          <option value="New to home care">{{t:forms.experience_new}}</option>
-          <option value="Under 1 year">{{t:forms.experience_under_one}}</option>
-          <option value="1–3 years">{{t:forms.experience_one_three}}</option>
-          <option value="3+ years">{{t:forms.experience_three_plus}}</option>
-        </select>
+          <legend>{{t:forms.role}} <span aria-hidden="true">*</span></legend>
+          <p class="note" id="certifications-hint">{{t:forms.select_all}}</p>
+          <label class="checkbox-option" for="certification-hha">
+            <input
+              id="certification-hha"
+              type="checkbox"
+              name="certifications[]"
+              value="HHA"
+            />
+            <span>{{t:forms.hha}}</span>
+          </label>
+          <label class="checkbox-option" for="certification-pca">
+            <input
+              id="certification-pca"
+              type="checkbox"
+              name="certifications[]"
+              value="PCA"
+            />
+            <span>{{t:forms.pca}}</span>
+          </label>
+          <label class="checkbox-option" for="certification-other">
+            <input
+              id="certification-other"
+              type="checkbox"
+              name="certifications[]"
+              value="Other"
+            />
+            <span>{{t:forms.other_certification}}</span>
+          </label>
+          <label class="checkbox-option" for="certification-none">
+            <input
+              id="certification-none"
+              type="checkbox"
+              name="certifications[]"
+              value="None yet"
+            />
+            <span>{{t:forms.none_yet}}</span>
+          </label>
+        </fieldset>
+        <div class="form-field">
+          <label for="aide-experience"
+            >{{t:forms.experience}} <span aria-hidden="true">*</span></label
+          >
+          <select id="aide-experience" name="experience" required>
+            <option value="">{{t:forms.choose}}</option>
+            <option value="New to home care">{{t:forms.experience_new}}</option>
+            <option value="Under 1 year">
+              {{t:forms.experience_under_one}}
+            </option>
+            <option value="1–3 years">{{t:forms.experience_one_three}}</option>
+            <option value="3+ years">{{t:forms.experience_three_plus}}</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="aide-language">{{t:forms.language}}</label>
+          <select id="aide-language" name="preferred-language">
+            <option value="">{{t:forms.choose}}</option>
+            <option value="English">English</option>
+            <option value="Russian">Русский</option>
+            <option value="Uzbek">O‘zbek</option>
+            <option value="Spanish">Español</option>
+            <option value="Other">{{t:forms.other}}</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="aide-borough">{{t:forms.work_borough}}</label>
+          <select id="aide-borough" name="borough">
+            <option value="">{{t:forms.choose}}</option>
+            <option value="Brooklyn">Brooklyn</option>
+            <option value="Queens">Queens</option>
+            <option value="Manhattan">Manhattan</option>
+            <option value="Bronx">Bronx</option>
+            <option value="Staten Island">Staten Island</option>
+            <option value="Outside NYC">{{t:forms.outside_nyc}}</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="aide-comments">{{t:forms.comments}}</label>
+          <textarea
+            id="aide-comments"
+            name="comments"
+            rows="4"
+            maxlength="2000"
+          ></textarea>
+        </div>
+        <div class="form-field">
+          <label for="aide-resume">{{t:forms.resume}}</label>
+          <input
+            id="aide-resume"
+            type="file"
+            data-resume-input
+            disabled
+            accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+            aria-describedby="aide-resume-hint"
+          />
+          <p class="note" id="aide-resume-hint">{{t:forms.resume_hint}}</p>
+          <button type="button" class="resume-remove" data-remove-resume hidden>
+            {{t:forms.remove_resume}}
+          </button>
+          <noscript><p class="note">{{t:forms.resume_javascript}}</p></noscript>
+        </div>
+        <p class="note">{{t:forms.permission}}</p>
+        {{captcha}}
+        <button class="button" type="submit">{{t:forms.aide_submit}}</button>
+        <p
+          class="form-status"
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+          tabindex="-1"
+        ></p>
       </div>
-      <div class="form-field">
-        <label for="aide-language">{{t:forms.language}}</label>
-        <select id="aide-language" name="preferred-language">
-          <option value="">{{t:forms.choose}}</option>
-          <option value="English">English</option>
-          <option value="Russian">Русский</option>
-          <option value="Uzbek">O‘zbek</option>
-          <option value="Spanish">Español</option>
-          <option value="Other">{{t:forms.other}}</option>
-        </select>
-      </div>
-      <div class="form-field">
-        <label for="aide-borough">{{t:forms.work_borough}}</label>
-        <select id="aide-borough" name="borough">
-          <option value="">{{t:forms.choose}}</option>
-          <option value="Brooklyn">Brooklyn</option>
-          <option value="Queens">Queens</option>
-          <option value="Manhattan">Manhattan</option>
-          <option value="Bronx">Bronx</option>
-          <option value="Staten Island">Staten Island</option>
-          <option value="Outside NYC">{{t:forms.outside_nyc}}</option>
-        </select>
-      </div>
-      <div class="form-field">
-        <label for="aide-comments">{{t:forms.comments}}</label>
-        <textarea
-          id="aide-comments"
-          name="comments"
-          rows="4"
-          maxlength="2000"
-        ></textarea>
-      </div>
-      <div class="form-field">
-        <label for="aide-resume">{{t:forms.resume}}</label>
-        <input
-          id="aide-resume"
-          type="file"
-          data-resume-input
-          disabled
-          accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-          aria-describedby="aide-resume-hint"
-        />
-        <p class="note" id="aide-resume-hint">{{t:forms.resume_hint}}</p>
-        <button type="button" class="resume-remove" data-remove-resume hidden>
-          {{t:forms.remove_resume}}
-        </button>
-        <noscript><p class="note">{{t:forms.resume_javascript}}</p></noscript>
-      </div>
-      <p class="note">{{t:forms.permission}}</p>
-      {{captcha}}
-      <button class="button" type="submit">{{t:forms.aide_submit}}</button>
-      <p
-        class="form-status"
-        role="status"
-        aria-live="polite"
-        aria-atomic="true"
-        tabindex="-1"
-      ></p>
+      {{inquiry_success}}
     </form>
   </div>
   <p class="note inquiry-privacy" id="inquiry-privacy">{{t:forms.privacy}}</p>

@@ -60,7 +60,7 @@
   "forms.client_submit": "Send support inquiry",
   "forms.aide_submit": "Send work inquiry",
   "forms.sending": "Sending…",
-  "forms.success": "Thank you. Your inquiry has been submitted. Kamilla will follow up using your contact details.",
+  "forms.success": "Kamilla will follow up using the contact details you provided.",
   "forms.error": "We couldn't confirm your submission. Your details are still here. Please try again, or contact Kamilla at 929-355-2787 or kamillaturob@gmail.com.",
   "about.skip_to_content": "Skip to content",
   "about.ka": "ka.",
@@ -241,5 +241,13 @@
   "forms.captcha_prompt": "Please complete the security check before sending.",
   "forms.captcha_unavailable": "Security verification is unavailable. Please call or email Kamilla instead.",
   "forms.captcha_required": "Please complete the security check. If it does not load, call or email Kamilla.",
-  "forms.captcha_javascript": "Enable JavaScript for the security check, or contact Kamilla by phone or email."
+  "forms.captcha_javascript": "Enable JavaScript for the security check, or contact Kamilla by phone or email.",
+  "forms.thank_you": "Thank you, your inquiry has been sent.",
+  "forms.sent_label": "INQUIRY SENT",
+  "forms.back_home": "Back to home",
+  "forms.uploading": "Uploading your résumé…",
+  "forms.upload_complete": "Your résumé was uploaded successfully.",
+  "forms.upload_pending": "Your inquiry was sent, but the résumé could not be attached yet. Retry below, or contact Kamilla. Do not submit the inquiry again.",
+  "forms.retry_upload": "Retry résumé upload",
+  "shared.social_image_alt": "Kamilla Akhmedova — NHTD, TBI, and OPWDD advocacy in New York City"
 }
