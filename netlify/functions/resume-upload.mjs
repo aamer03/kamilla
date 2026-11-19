@@ -1,7 +1,12 @@
 import { getStore } from '@netlify/blobs';
 import { createHash } from 'node:crypto';
+import {
+  MAX_RESUME_BYTES,
+  PERMIT_TOKEN_PATTERN,
+  RESUME_REFERENCE_PATTERN,
+} from '../../src/shared/upload-policy.js';
 
-const maxBytes = 4 * 1024 * 1024;
+const maxBytes = MAX_RESUME_BYTES;
 const headers = {
   'Cache-Control': 'no-store',
   'X-Content-Type-Options': 'nosniff',
@@ -39,7 +44,10 @@ export function createHandler(
     try {
       const token = request.headers.get('x-resume-permit') || '';
       const reference = request.headers.get('x-resume-reference') || '';
-      if (!/^[a-f0-9]{64}$/.test(token) || !/^[a-f0-9-]{36}$/.test(reference)) {
+      if (
+        !PERMIT_TOKEN_PATTERN.test(token) ||
+        !RESUME_REFERENCE_PATTERN.test(reference)
+      ) {
         return reply(403, { error: 'verification' });
       }
       const permit = await permitStoreFactory().get(

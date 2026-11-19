@@ -30,6 +30,15 @@
     {
       "id": "services",
       "file": "services.html"
+    },
+    {
+      "id": "privacy",
+      "file": "privacy.html"
+    },
+    {
+      "id": "not_found",
+      "file": "404.html",
+      "indexable": false
     }
   ]
 }

@@ -1,5 +1,10 @@
 import { getStore } from '@netlify/blobs';
 import { createHash } from 'node:crypto';
+import {
+  PERMIT_TOKEN_PATTERN,
+  RESUME_REFERENCE_PATTERN,
+  PERMIT_TTL_MS,
+} from '../../src/shared/upload-policy.js';
 
 export function createVerifiedHandler(
   storeFactory = () =>
@@ -11,8 +16,8 @@ export function createVerifiedHandler(
     const reference = data?.['resume-reference'];
     if (data?.['form-name'] && data['form-name'] !== 'aide-inquiry') return;
     if (
-      !/^[a-f0-9]{64}$/.test(token || '') ||
-      !/^[a-f0-9-]{36}$/.test(reference || '')
+      !PERMIT_TOKEN_PATTERN.test(token || '') ||
+      !RESUME_REFERENCE_PATTERN.test(reference || '')
     )
       return;
     // Netlify verifies the event signature before invoking formSubmitted.
@@ -21,7 +26,7 @@ export function createVerifiedHandler(
       createHash('sha256').update(token).digest('hex'),
       {
         reference,
-        expiresAt: now() + 15 * 60 * 1000,
+        expiresAt: now() + PERMIT_TTL_MS,
       },
       { onlyIfNew: true },
     );

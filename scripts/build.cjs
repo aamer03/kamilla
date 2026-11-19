@@ -34,10 +34,23 @@ fs.copyFileSync(
   path.join(root, 'src/scripts/navigation.js'),
   path.join(output, 'main.js'),
 );
+fs.mkdirSync(path.join(output, 'scripts'), { recursive: true });
 fs.copyFileSync(
   path.join(root, 'src/scripts/forms.js'),
-  path.join(output, 'forms.js'),
+  path.join(output, 'scripts/forms.js'),
 );
+fs.cpSync(
+  path.join(root, 'src/scripts/forms'),
+  path.join(output, 'scripts/forms'),
+  {
+    recursive: true,
+  },
+);
+fs.cpSync(path.join(root, 'src/shared'), path.join(output, 'shared'), {
+  recursive: true,
+});
+if (fs.existsSync(path.join(output, 'forms.js')))
+  fs.unlinkSync(path.join(output, 'forms.js'));
 console.log(
   `Built ${config.pages.length * Object.keys(config.languages).length} pages.`,
 );

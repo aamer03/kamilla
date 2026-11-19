@@ -11,7 +11,7 @@ npm ci
 npm run verify
 ```
 
-The build writes all 24 pages and supporting files into `dist/`. Commit source and generated output. Edit source files; rebuilding replaces generated files in `dist/`.
+The build writes all 32 pages and supporting files into `dist/`. Commit source and generated output. Edit source files; rebuilding replaces generated files in `dist/`.
 
 ## Local live preview
 
@@ -44,7 +44,12 @@ Run `npm run format` after editing, then `npm run verify` before deploying. Gene
 - `src/templates/pages/`: individual page structures.
 - `src/lib/render.cjs`: template renderer and localized URL handling.
 - `src/styles/site.css`: consolidated styles, responsive layouts and accessibility rules.
-- `src/scripts/navigation.js`: mobile menu behavior.
+- `src/scripts/navigation.js`: mobile menu and email copy controls.
+- `src/scripts/forms.js`: browser module entry point.
+- `src/scripts/forms/`: CAPTCHA, résumé upload, validation, submission, and form switching.
+- `src/shared/upload-policy.js`: shared browser/server size limits and permit rules.
+- `src/lib/seo.cjs`: canonical URLs, metadata, structured data and sitemap generation.
+- `src/lib/html.cjs`: shared HTML escaping.
 - `scripts/build.cjs`: static build.
 - `scripts/dev.cjs`: local preview, automatic rebuilds and browser refresh.
 - `scripts/check.cjs`: translation, output, link, anchor and image-description checks.
@@ -92,3 +97,11 @@ Deploy preview checks: confirm `verified-inquiry` is registered as an event func
 ## Search and sharing metadata
 
 The canonical production URL lives in `src/content/site.json`. The build generates canonical and absolute hreflang URLs, Open Graph and social card tags, Person/WebSite/WebPage structured data, `dist/sitemap.xml`, and `dist/robots.txt`. `assets/social-preview.png` is the shared 1200×630 image. The index.html URLs canonicalize to each language directory. Submit `https://kamillaadvocacy.com/sitemap.xml` in Google Search Console after deployment; metadata does not guarantee a search ranking.
+
+## Privacy, retention and missing pages
+
+The footer and contact forms link to localized privacy notices. Retention is purpose-based, without an invented fixed number of days. The manual review/deletion procedure is in `docs/data-retention.md`; no existing records are automatically deleted. Kamilla should review and follow the published notice.
+
+`404.html` and localized variants provide Home/Contact actions with root-relative links and assets so nested missing URLs work. Netlify uses the root 404 automatically; `netlify.toml` handles missing Russian, Uzbek and Spanish paths. 404 pages are noindex and excluded from the sitemap; the 28 regular pages remain indexable.
+
+Forms use standard browser ES modules, copied into `dist/scripts/` with shared policy in `dist/shared/`. The generated legacy `dist/forms.js` is removed by the build. Node scripts remain `.cjs`, Functions remain `.mjs`, and package `type: module` makes the shared `.js` modules explicit. Tests import the actual modules and reuse the fixture in `scripts/fixtures/inquiry.cjs`.

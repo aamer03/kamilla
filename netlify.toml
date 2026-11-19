@@ -4,3 +4,19 @@
 
 [functions]
   directory = "netlify/functions"
+
+# Existing static files take precedence; only missing localized pages use these.
+[[redirects]]
+  from = "/ru/*"
+  to = "/ru/404.html"
+  status = 404
+
+[[redirects]]
+  from = "/uz/*"
+  to = "/uz/404.html"
+  status = 404
+
+[[redirects]]
+  from = "/es/*"
+  to = "/es/404.html"
+  status = 404

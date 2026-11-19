@@ -192,4 +192,36 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://kamillaadvocacy.com/es/services.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://kamillaadvocacy.com/services.html"/>
   </url>
+  <url>
+    <loc>https://kamillaadvocacy.com/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kamillaadvocacy.com/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kamillaadvocacy.com/ru/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://kamillaadvocacy.com/uz/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://kamillaadvocacy.com/es/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kamillaadvocacy.com/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://kamillaadvocacy.com/ru/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kamillaadvocacy.com/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kamillaadvocacy.com/ru/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://kamillaadvocacy.com/uz/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://kamillaadvocacy.com/es/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kamillaadvocacy.com/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://kamillaadvocacy.com/uz/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kamillaadvocacy.com/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kamillaadvocacy.com/ru/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://kamillaadvocacy.com/uz/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://kamillaadvocacy.com/es/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kamillaadvocacy.com/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://kamillaadvocacy.com/es/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kamillaadvocacy.com/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kamillaadvocacy.com/ru/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="https://kamillaadvocacy.com/uz/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://kamillaadvocacy.com/es/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kamillaadvocacy.com/privacy.html"/>
+  </url>
 </urlset>

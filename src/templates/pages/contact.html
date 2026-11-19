@@ -161,7 +161,10 @@
             <option value="Outside NYC">{{t:forms.outside_nyc}}</option>
           </select>
         </div>
-        <p class="note">{{t:forms.permission}}</p>
+        <p class="note">
+          {{t:forms.permission}}
+          <a href="privacy.html">{{t:shared.privacy_link}}</a>
+        </p>
         {{captcha}}
         <button class="button" type="submit">{{t:forms.client_submit}}</button>
         <p
@@ -370,7 +373,10 @@
           </button>
           <noscript><p class="note">{{t:forms.resume_javascript}}</p></noscript>
         </div>
-        <p class="note">{{t:forms.permission}}</p>
+        <p class="note">
+          {{t:forms.permission}}
+          <a href="privacy.html">{{t:shared.privacy_link}}</a>
+        </p>
         {{captcha}}
         <button class="button" type="submit">{{t:forms.aide_submit}}</button>
         <p
@@ -434,4 +440,4 @@
     </div>
   </div>
 </section>
-<script src="forms.js" defer></script>
+<script src="scripts/forms.js" type="module"></script>

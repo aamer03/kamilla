@@ -42,28 +42,35 @@ for (const language of languages) {
       'Expected one main landmark',
     );
     assert(!html.includes('{{'), 'Unresolved template token');
-    const canonical = pageUrl(page, language);
-    assert(
-      html.includes(`rel="canonical" href="${canonical}"`),
-      'Missing canonical URL',
-    );
-    assert(
-      html.includes(`property="og:url" content="${canonical}"`),
-      'Incorrect share URL',
-    );
-    assert(
-      html.includes('name="twitter:card" content="summary_large_image"'),
-      'Missing social card',
-    );
-    const schema = JSON.parse(
-      html.match(
-        /<script type="application\/ld\+json">([\s\S]*?)<\/script>/,
-      )[1],
-    );
-    assert.equal(
-      schema['@graph'].find((entity) => entity['@type'] === 'WebPage').url,
-      canonical,
-    );
+    if (page.indexable === false) {
+      assert(
+        html.includes('name="robots" content="noindex, follow"'),
+        '404 must not be indexed',
+      );
+    } else {
+      const canonical = pageUrl(page, language);
+      assert(
+        html.includes(`rel="canonical" href="${canonical}"`),
+        'Missing canonical URL',
+      );
+      assert(
+        html.includes(`property="og:url" content="${canonical}"`),
+        'Incorrect share URL',
+      );
+      assert(
+        html.includes('name="twitter:card" content="summary_large_image"'),
+        'Missing social card',
+      );
+      const schema = JSON.parse(
+        html.match(
+          /<script type="application\/ld\+json">([\s\S]*?)<\/script>/,
+        )[1],
+      );
+      assert.equal(
+        schema['@graph'].find((entity) => entity['@type'] === 'WebPage').url,
+        canonical,
+      );
+    }
     for (const match of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
       const url = match[1];
       if (/^(https?:|mailto:|tel:|#)/.test(url)) continue;
@@ -128,7 +135,8 @@ assert.equal(
 );
 assert.equal(
   (sitemap().match(/<loc>/g) || []).length,
-  config.pages.length * languages.length,
+  config.pages.filter((page) => page.indexable !== false).length *
+    languages.length,
 );
 assert(
   fs
@@ -139,3 +147,22 @@ assert(
   fs.existsSync(path.join(output, 'assets/social-preview.png')),
   'Missing sharing image',
 );
+const modules = [
+  'scripts/forms.js',
+  ...fs
+    .readdirSync(path.join(output, 'scripts/forms'))
+    .map((name) => `scripts/forms/${name}`),
+  'shared/upload-policy.js',
+];
+for (const module of modules) {
+  const file = path.join(output, module);
+  for (const imported of fs
+    .readFileSync(file, 'utf8')
+    .matchAll(/from\s+['"]([^'"]+)['"]/g)) {
+    const target = path.resolve(path.dirname(file), imported[1]);
+    assert(
+      target.startsWith(output + path.sep) && fs.existsSync(target),
+      `${module}: missing module ${imported[1]}`,
+    );
+  }
+}

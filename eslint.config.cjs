@@ -18,6 +18,6 @@ module.exports = [
   },
   {
     files: ['src/scripts/**/*.js'],
-    languageOptions: { sourceType: 'script', globals: globals.browser },
+    languageOptions: { sourceType: 'module', globals: globals.browser },
   },
 ];
