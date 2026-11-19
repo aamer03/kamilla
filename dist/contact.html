@@ -46,7 +46,7 @@
   <h1>You don’t need all the answers to reach out.</h1>
   <p class="lead">Ask a question, request an appointment, or introduce yourself for work opportunities.</p>
 </section>
-<section class="wrap split section">
+<section class="wrap section contact-details">
   <div class="contact-links">
     <p class="eyebrow">CONTACT KAMILLA DIRECTLY</p>
     <a href="tel:+19293552787">929-355-2787</a>
@@ -56,17 +56,227 @@
     <p>New York City English · Русский · O‘zbek</p>
     <p>Appointments are arranged by phone or email. Contact Kamilla to request a time and confirm availability.</p>
   </div>
-  <div class="panel">
-    <p class="eyebrow">REQUEST AN APPOINTMENT</p>
-    <h2>Let’s find a time to talk.</h2>
-    <p>Include your preferred day or time, language, and whether you’re reaching out about OPWDD, NHTD, TBI, or work.</p>
-    <a class="button" href="mailto:kamillaturob@gmail.com?subject=Appointment%20request&amp;body=Hello%20Kamilla%2C%0A%0AI%20would%20like%20to%20request%20an%20appointment.%0APreferred%20day%20or%20time%3A%0APreferred%20language%3A%0ATopic%3A%0ABest%20callback%20number%3A"
-      >Request by email
-      <span aria-hidden="true">↗</span>
-    </a>
-    <p class="note">Opens your email app. Your appointment is confirmed after Kamilla responds. Please keep your initial message general and do not include sensitive health or identity information.</p>
+  <a class="button" href="mailto:kamillaturob@gmail.com?subject=Appointment%20request&amp;body=Hello%20Kamilla%2C%0A%0AI%20would%20like%20to%20request%20an%20appointment.%0APreferred%20day%20or%20time%3A%0APreferred%20language%3A%0ATopic%3A%0ABest%20callback%20number%3A"
+    >Request by email
+    <span aria-hidden="true">↗</span>
+  </a>
+</section>
+<section class="wrap section" aria-labelledby="inquiry-heading">
+  <h2 id="inquiry-heading">How can Kamilla help?</h2>
+  <p>Choose the form that fits your inquiry. Kamilla will follow up using the contact details you provide.</p>
+  <p class="note" id="inquiry-privacy">These forms are for initial inquiries. Please do not send medical information, Medicaid or Social Security numbers, financial details, or identification documents.</p>
+  <div class="inquiry-grid">
+    <form
+      class="inquiry-form panel"
+      name="client-inquiry"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      aria-labelledby="client-heading"
+      aria-describedby="inquiry-privacy client-intro"
+      data-inquiry-form
+      data-sending="Sending…"
+      data-success="Thank you. Your inquiry has been submitted. Kamilla will follow up using your contact details."
+      data-error="We couldn't confirm your submission. Your details are still here. Please try again, or contact Kamilla at 929-355-2787 or kamillaturob@gmail.com."
+    >
+      <input type="hidden" name="form-name" value="client-inquiry" />
+      <input type="hidden" name="website-language" value="en" />
+      <p hidden>
+        <label
+          >Leave this field empty
+          <input name="bot-field" tabindex="-1" autocomplete="off"
+        /></label>
+      </p>
+      <h3 id="client-heading">For individuals and families</h3>
+      <p id="client-intro">Ask about NHTD, OPWDD, or TBI support for yourself or someone you care for.</p>
+      <p class="note">Fields marked * are required.</p>
+      <div class="form-field">
+        <label for="client-name"
+          >Your full name <span aria-hidden="true">*</span></label
+        >
+        <input
+          id="client-name"
+          name="name"
+          autocomplete="name"
+          maxlength="120"
+          required
+        />
+      </div>
+      <div class="form-field">
+        <label for="client-email"
+          >Email address <span aria-hidden="true">*</span></label
+        >
+        <input
+          id="client-email"
+          name="email"
+          type="email"
+          autocomplete="email"
+          maxlength="254"
+          required
+        />
+      </div>
+      <div class="form-field">
+        <label for="client-phone">Phone number (optional)</label>
+        <input
+          id="client-phone"
+          name="phone"
+          type="tel"
+          autocomplete="tel"
+          maxlength="40"
+        />
+      </div>
+      <div class="form-field">
+        <label for="client-program"
+          >Which program are you asking about? <span aria-hidden="true">*</span></label
+        >
+        <select id="client-program" name="program" required>
+          <option value="">Please select</option>
+          <option value="NHTD">NHTD</option>
+          <option value="OPWDD">OPWDD</option>
+          <option value="TBI">TBI</option>
+          <option value="Not sure">I'm not sure yet</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="client-language">Preferred language (optional)</label>
+        <select id="client-language" name="preferred-language">
+          <option value="">Please select</option>
+          <option value="English">English</option>
+          <option value="Russian">Русский</option>
+          <option value="Uzbek">O‘zbek</option>
+          <option value="Spanish">Español</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="client-borough">Your borough (optional)</label>
+        <select id="client-borough" name="borough">
+          <option value="">Please select</option>
+          <option value="Brooklyn">Brooklyn</option>
+          <option value="Queens">Queens</option>
+          <option value="Manhattan">Manhattan</option>
+          <option value="Bronx">Bronx</option>
+          <option value="Staten Island">Staten Island</option>
+          <option value="Outside NYC">Outside New York City</option>
+        </select>
+      </div>
+      <p class="note">By submitting, you agree that Kamilla may contact you about this inquiry. Submitting does not confirm eligibility, services, employment, or an appointment.</p>
+      <button class="button" type="submit">Send support inquiry</button>
+      <p
+        class="form-status"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+        tabindex="-1"
+      ></p>
+    </form>
+    <form
+      class="inquiry-form panel"
+      name="aide-inquiry"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      aria-labelledby="aide-heading"
+      aria-describedby="inquiry-privacy aide-intro"
+      data-inquiry-form
+      data-sending="Sending…"
+      data-success="Thank you. Your inquiry has been submitted. Kamilla will follow up using your contact details."
+      data-error="We couldn't confirm your submission. Your details are still here. Please try again, or contact Kamilla at 929-355-2787 or kamillaturob@gmail.com."
+    >
+      <input type="hidden" name="form-name" value="aide-inquiry" />
+      <input type="hidden" name="website-language" value="en" />
+      <p hidden>
+        <label
+          >Leave this field empty
+          <input name="bot-field" tabindex="-1" autocomplete="off"
+        /></label>
+      </p>
+      <h3 id="aide-heading">For home care aides</h3>
+      <p id="aide-intro">Introduce yourself to ask about home care work. Opportunities and requirements will be discussed individually.</p>
+      <p class="note">Fields marked * are required.</p>
+      <div class="form-field">
+        <label for="aide-name"
+          >Your full name <span aria-hidden="true">*</span></label
+        >
+        <input
+          id="aide-name"
+          name="name"
+          autocomplete="name"
+          maxlength="120"
+          required
+        />
+      </div>
+      <div class="form-field">
+        <label for="aide-email"
+          >Email address <span aria-hidden="true">*</span></label
+        >
+        <input
+          id="aide-email"
+          name="email"
+          type="email"
+          autocomplete="email"
+          maxlength="254"
+          required
+        />
+      </div>
+      <div class="form-field">
+        <label for="aide-phone">Phone number (optional)</label>
+        <input
+          id="aide-phone"
+          name="phone"
+          type="tel"
+          autocomplete="tel"
+          maxlength="40"
+        />
+      </div>
+      <div class="form-field">
+        <label for="aide-role"
+          >Your role or certification <span aria-hidden="true">*</span></label
+        >
+        <select id="aide-role" name="role" required>
+          <option value="">Please select</option>
+          <option value="HHA">Home Health Aide (HHA)</option>
+          <option value="PCA">Personal Care Aide (PCA)</option>
+          <option value="HHA and PCA">Both HHA and PCA</option>
+          <option value="Other or exploring">Other / exploring home care work</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="aide-language">Preferred language (optional)</label>
+        <select id="aide-language" name="preferred-language">
+          <option value="">Please select</option>
+          <option value="English">English</option>
+          <option value="Russian">Русский</option>
+          <option value="Uzbek">O‘zbek</option>
+          <option value="Spanish">Español</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="aide-borough">Preferred work borough (optional)</label>
+        <select id="aide-borough" name="borough">
+          <option value="">Please select</option>
+          <option value="Brooklyn">Brooklyn</option>
+          <option value="Queens">Queens</option>
+          <option value="Manhattan">Manhattan</option>
+          <option value="Bronx">Bronx</option>
+          <option value="Staten Island">Staten Island</option>
+          <option value="Outside NYC">Outside New York City</option>
+        </select>
+      </div>
+      <p class="note">By submitting, you agree that Kamilla may contact you about this inquiry. Submitting does not confirm eligibility, services, employment, or an appointment.</p>
+      <button class="button" type="submit">Send work inquiry</button>
+      <p
+        class="form-status"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+        tabindex="-1"
+      ></p>
+    </form>
   </div>
 </section>
+<script src="forms.js" defer></script>
 <section class="closing">
   <div class="wrap">
     <h2>Ready to talk?</h2>

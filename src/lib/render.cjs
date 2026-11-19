@@ -82,7 +82,7 @@ function renderPage(page, language) {
     throw new Error('Unresolved template token in ' + page.id);
   if (language !== 'en') {
     html = html.replace(
-      /(href|src)="(style\.css|main\.js|assets\/[^"#]+)"/g,
+      /(href|src)="(style\.css|main\.js|forms\.js|assets\/[^"#]+)"/g,
       '$1="../$2"',
     );
   }

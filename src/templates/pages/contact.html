@@ -3,7 +3,7 @@
   <h1>{{t:contact.you_dont_need_all_the_answers_to}}</h1>
   <p class="lead">{{t:contact.ask_a_question_request_an_appointment_or}}</p>
 </section>
-<section class="wrap split section">
+<section class="wrap section contact-details">
   <div class="contact-links">
     <p class="eyebrow">{{t:contact.contact_kamilla_directly}}</p>
     <a href="tel:+19293552787">{{t:about.9293552787}}</a>
@@ -13,14 +13,224 @@
     <p>{{t:contact.new_york_city_english_ozbek}}</p>
     <p>{{t:contact.appointments_are_arranged_by_phone_or_email}}</p>
   </div>
-  <div class="panel">
-    <p class="eyebrow">{{t:contact.request_an_appointment}}</p>
-    <h2>{{t:contact.lets_find_a_time_to_talk}}</h2>
-    <p>{{t:contact.include_your_preferred_day_or_time_language}}</p>
-    <a class="button" href="{{t:contact.email_1}}"
-      >{{t:contact.request_by_email}}
-      <span aria-hidden="true">{{t:about.label_2}}</span>
-    </a>
-    <p class="note">{{t:contact.opens_your_email_app_your_appointment_is}}</p>
+  <a class="button" href="{{t:contact.email_1}}"
+    >{{t:contact.request_by_email}}
+    <span aria-hidden="true">{{t:about.label_2}}</span>
+  </a>
+</section>
+<section class="wrap section" aria-labelledby="inquiry-heading">
+  <h2 id="inquiry-heading">{{t:forms.heading}}</h2>
+  <p>{{t:forms.intro}}</p>
+  <p class="note" id="inquiry-privacy">{{t:forms.privacy}}</p>
+  <div class="inquiry-grid">
+    <form
+      class="inquiry-form panel"
+      name="client-inquiry"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      aria-labelledby="client-heading"
+      aria-describedby="inquiry-privacy client-intro"
+      data-inquiry-form
+      data-sending="{{t:forms.sending}}"
+      data-success="{{t:forms.success}}"
+      data-error="{{t:forms.error}}"
+    >
+      <input type="hidden" name="form-name" value="client-inquiry" />
+      <input type="hidden" name="website-language" value="{{lang}}" />
+      <p hidden>
+        <label
+          >Leave this field empty
+          <input name="bot-field" tabindex="-1" autocomplete="off"
+        /></label>
+      </p>
+      <h3 id="client-heading">{{t:forms.client_heading}}</h3>
+      <p id="client-intro">{{t:forms.client_intro}}</p>
+      <p class="note">{{t:forms.required_note}}</p>
+      <div class="form-field">
+        <label for="client-name"
+          >{{t:forms.name}} <span aria-hidden="true">*</span></label
+        >
+        <input
+          id="client-name"
+          name="name"
+          autocomplete="name"
+          maxlength="120"
+          required
+        />
+      </div>
+      <div class="form-field">
+        <label for="client-email"
+          >{{t:forms.email}} <span aria-hidden="true">*</span></label
+        >
+        <input
+          id="client-email"
+          name="email"
+          type="email"
+          autocomplete="email"
+          maxlength="254"
+          required
+        />
+      </div>
+      <div class="form-field">
+        <label for="client-phone">{{t:forms.phone}}</label>
+        <input
+          id="client-phone"
+          name="phone"
+          type="tel"
+          autocomplete="tel"
+          maxlength="40"
+        />
+      </div>
+      <div class="form-field">
+        <label for="client-program"
+          >{{t:forms.program}} <span aria-hidden="true">*</span></label
+        >
+        <select id="client-program" name="program" required>
+          <option value="">{{t:forms.choose}}</option>
+          <option value="NHTD">NHTD</option>
+          <option value="OPWDD">OPWDD</option>
+          <option value="TBI">TBI</option>
+          <option value="Not sure">{{t:forms.not_sure}}</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="client-language">{{t:forms.language}}</label>
+        <select id="client-language" name="preferred-language">
+          <option value="">{{t:forms.choose}}</option>
+          <option value="English">English</option>
+          <option value="Russian">Русский</option>
+          <option value="Uzbek">O‘zbek</option>
+          <option value="Spanish">Español</option>
+          <option value="Other">{{t:forms.other}}</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="client-borough">{{t:forms.borough}}</label>
+        <select id="client-borough" name="borough">
+          <option value="">{{t:forms.choose}}</option>
+          <option value="Brooklyn">Brooklyn</option>
+          <option value="Queens">Queens</option>
+          <option value="Manhattan">Manhattan</option>
+          <option value="Bronx">Bronx</option>
+          <option value="Staten Island">Staten Island</option>
+          <option value="Outside NYC">{{t:forms.outside_nyc}}</option>
+        </select>
+      </div>
+      <p class="note">{{t:forms.permission}}</p>
+      <button class="button" type="submit">{{t:forms.client_submit}}</button>
+      <p
+        class="form-status"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+        tabindex="-1"
+      ></p>
+    </form>
+    <form
+      class="inquiry-form panel"
+      name="aide-inquiry"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      aria-labelledby="aide-heading"
+      aria-describedby="inquiry-privacy aide-intro"
+      data-inquiry-form
+      data-sending="{{t:forms.sending}}"
+      data-success="{{t:forms.success}}"
+      data-error="{{t:forms.error}}"
+    >
+      <input type="hidden" name="form-name" value="aide-inquiry" />
+      <input type="hidden" name="website-language" value="{{lang}}" />
+      <p hidden>
+        <label
+          >Leave this field empty
+          <input name="bot-field" tabindex="-1" autocomplete="off"
+        /></label>
+      </p>
+      <h3 id="aide-heading">{{t:forms.aide_heading}}</h3>
+      <p id="aide-intro">{{t:forms.aide_intro}}</p>
+      <p class="note">{{t:forms.required_note}}</p>
+      <div class="form-field">
+        <label for="aide-name"
+          >{{t:forms.name}} <span aria-hidden="true">*</span></label
+        >
+        <input
+          id="aide-name"
+          name="name"
+          autocomplete="name"
+          maxlength="120"
+          required
+        />
+      </div>
+      <div class="form-field">
+        <label for="aide-email"
+          >{{t:forms.email}} <span aria-hidden="true">*</span></label
+        >
+        <input
+          id="aide-email"
+          name="email"
+          type="email"
+          autocomplete="email"
+          maxlength="254"
+          required
+        />
+      </div>
+      <div class="form-field">
+        <label for="aide-phone">{{t:forms.phone}}</label>
+        <input
+          id="aide-phone"
+          name="phone"
+          type="tel"
+          autocomplete="tel"
+          maxlength="40"
+        />
+      </div>
+      <div class="form-field">
+        <label for="aide-role"
+          >{{t:forms.role}} <span aria-hidden="true">*</span></label
+        >
+        <select id="aide-role" name="role" required>
+          <option value="">{{t:forms.choose}}</option>
+          <option value="HHA">{{t:forms.hha}}</option>
+          <option value="PCA">{{t:forms.pca}}</option>
+          <option value="HHA and PCA">{{t:forms.both}}</option>
+          <option value="Other or exploring">{{t:forms.other_role}}</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="aide-language">{{t:forms.language}}</label>
+        <select id="aide-language" name="preferred-language">
+          <option value="">{{t:forms.choose}}</option>
+          <option value="English">English</option>
+          <option value="Russian">Русский</option>
+          <option value="Uzbek">O‘zbek</option>
+          <option value="Spanish">Español</option>
+          <option value="Other">{{t:forms.other}}</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="aide-borough">{{t:forms.work_borough}}</label>
+        <select id="aide-borough" name="borough">
+          <option value="">{{t:forms.choose}}</option>
+          <option value="Brooklyn">Brooklyn</option>
+          <option value="Queens">Queens</option>
+          <option value="Manhattan">Manhattan</option>
+          <option value="Bronx">Bronx</option>
+          <option value="Staten Island">Staten Island</option>
+          <option value="Outside NYC">{{t:forms.outside_nyc}}</option>
+        </select>
+      </div>
+      <p class="note">{{t:forms.permission}}</p>
+      <button class="button" type="submit">{{t:forms.aide_submit}}</button>
+      <p
+        class="form-status"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+        tabindex="-1"
+      ></p>
+    </form>
   </div>
 </section>
+<script src="forms.js" defer></script>

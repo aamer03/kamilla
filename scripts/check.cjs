@@ -57,6 +57,41 @@ for (const language of languages) {
     }
     for (const image of html.matchAll(/<img\b[^>]*>/g))
       assert(/\balt="[^"]*"/.test(image[0]), 'Image needs alt text');
+    if (page.id === 'contact') {
+      const forms = [...html.matchAll(/<form\b[^>]*>[\s\S]*?<\/form>/g)];
+      assert.equal(forms.length, 2, 'Expected client and aide inquiry forms');
+      for (const [index, name] of [
+        'client-inquiry',
+        'aide-inquiry',
+      ].entries()) {
+        const form = forms[index][0];
+        assert(form.includes(`name="${name}"`), 'Incorrect inquiry form name');
+        assert(
+          form.includes(`name="form-name" value="${name}"`),
+          'Missing Netlify form identifier',
+        );
+        assert(
+          form.includes('data-netlify="true"'),
+          'Missing Netlify detection',
+        );
+        assert(
+          form.includes('netlify-honeypot="bot-field"'),
+          'Missing spam trap',
+        );
+        assert(
+          form.includes(`name="website-language" value="${language}"`),
+          'Missing submission language',
+        );
+        for (const field of form.matchAll(
+          /<(?:input|select)\b[^>]*\bid="([^"]+)"[^>]*>/g,
+        )) {
+          assert(
+            form.includes(`for="${field[1]}"`),
+            'Form field needs a label',
+          );
+        }
+      }
+    }
     count++;
   }
 }

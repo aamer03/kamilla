@@ -63,4 +63,8 @@ Any static host can serve `dist/`. The existing Sites project is identified in `
 
 ## Contact and privacy
 
-Contact links open visitors' phone/email apps. There is no inquiry backend, booking service, analytics or application database. The homepage welcome is draft copy for Kamilla to review.
+Contact links open visitors' phone/email apps. The Contact page also has separate Netlify Forms named `client-inquiry` and `aide-inquiry`, shared across all four website languages. Each submission includes the website language. The forms collect initial contact details, program or aide role, preferred language and borough. They do not request documents or medical records. The homepage welcome is draft copy for Kamilla to review.
+
+In Netlify, enable Forms > Enable form detection before deploying these forms. After deployment, verify both form names appear in Forms. Configure email notifications for each form under its notification settings if Kamilla should receive submissions at `kamillaturob@gmail.com`. Submissions can also be reviewed in the Netlify dashboard. See https://docs.netlify.com/manage/forms/setup/ and https://docs.netlify.com/manage/forms/notifications/.
+
+The local `npm run dev` server previews the forms but does not process submissions. On Netlify, JavaScript displays translated pending, success and error messages. If JavaScript is unavailable, the HTML forms use Netlify's standard submission flow. Verify reception in Netlify after deployment before treating submission handling as operational.

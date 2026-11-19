@@ -28,6 +28,10 @@ fs.copyFileSync(
   path.join(root, 'src/scripts/navigation.js'),
   path.join(output, 'main.js'),
 );
+fs.copyFileSync(
+  path.join(root, 'src/scripts/forms.js'),
+  path.join(output, 'forms.js'),
+);
 console.log(
   `Built ${config.pages.length * Object.keys(config.languages).length} pages.`,
 );

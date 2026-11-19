@@ -46,7 +46,7 @@
   <h1>Puede comunicarse aunque todavía tenga preguntas.</h1>
   <p class="lead">Haga una pregunta, solicite una cita o preséntese para consultar sobre oportunidades de empleo.</p>
 </section>
-<section class="wrap split section">
+<section class="wrap section contact-details">
   <div class="contact-links">
     <p class="eyebrow">CONTACTE DIRECTAMENTE A KAMILLA</p>
     <a href="tel:+19293552787">929-355-2787</a>
@@ -56,17 +56,227 @@
     <p>Ciudad de Nueva York · Atención en inglés, ruso y uzbeko</p>
     <p>Las citas se coordinan por teléfono o correo electrónico. Comuníquese con Kamilla para solicitar un horario y confirmar la disponibilidad.</p>
   </div>
-  <div class="panel">
-    <p class="eyebrow">SOLICITE UNA CITA</p>
-    <h2>Busquemos un momento para conversar.</h2>
-    <p>Indique el día u horario que prefiere, su idioma y si su consulta es sobre OPWDD, NHTD, TBI o empleo.</p>
-    <a class="button" href="mailto:kamillaturob@gmail.com?subject=Solicitud%20de%20cita&amp;body=Hola%20Kamilla%3A%0A%0AMe%20gustar%C3%ADa%20solicitar%20una%20cita.%0AD%C3%ADa%20u%20horario%20preferido%3A%0AIdioma%20preferido%3A%0ATema%3A%0AN%C3%BAmero%20de%20tel%C3%A9fono%20de%20contacto%3A"
-      >Solicitar por correo electrónico
-      <span aria-hidden="true">↗</span>
-    </a>
-    <p class="note">Se abrirá su aplicación de correo electrónico. Su cita quedará confirmada cuando Kamilla responda. Mantenga su primer mensaje en términos generales y no incluya información médica ni de identidad confidencial.</p>
+  <a class="button" href="mailto:kamillaturob@gmail.com?subject=Solicitud%20de%20cita&amp;body=Hola%20Kamilla%3A%0A%0AMe%20gustar%C3%ADa%20solicitar%20una%20cita.%0AD%C3%ADa%20u%20horario%20preferido%3A%0AIdioma%20preferido%3A%0ATema%3A%0AN%C3%BAmero%20de%20tel%C3%A9fono%20de%20contacto%3A"
+    >Solicitar por correo electrónico
+    <span aria-hidden="true">↗</span>
+  </a>
+</section>
+<section class="wrap section" aria-labelledby="inquiry-heading">
+  <h2 id="inquiry-heading">¿Cómo puede ayudarle Kamilla?</h2>
+  <p>Elija el formulario que corresponda a su consulta. Kamilla se comunicará con usted utilizando los datos de contacto que proporcione.</p>
+  <p class="note" id="inquiry-privacy">Estos formularios son para consultas iniciales. No envíe información médica, números de Medicaid o Seguro Social, datos financieros ni documentos de identidad.</p>
+  <div class="inquiry-grid">
+    <form
+      class="inquiry-form panel"
+      name="client-inquiry"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      aria-labelledby="client-heading"
+      aria-describedby="inquiry-privacy client-intro"
+      data-inquiry-form
+      data-sending="Enviando…"
+      data-success="Gracias. Su consulta ha sido enviada. Kamilla se comunicará con usted utilizando sus datos de contacto."
+      data-error="No pudimos confirmar el envío. Sus datos siguen en el formulario. Inténtelo de nuevo o contacte a Kamilla al 929-355-2787 o a kamillaturob@gmail.com."
+    >
+      <input type="hidden" name="form-name" value="client-inquiry" />
+      <input type="hidden" name="website-language" value="es" />
+      <p hidden>
+        <label
+          >Leave this field empty
+          <input name="bot-field" tabindex="-1" autocomplete="off"
+        /></label>
+      </p>
+      <h3 id="client-heading">Para personas y familias</h3>
+      <p id="client-intro">Consulte sobre el apoyo de NHTD, OPWDD o TBI para usted o alguien a quien cuida.</p>
+      <p class="note">Los campos marcados con * son obligatorios.</p>
+      <div class="form-field">
+        <label for="client-name"
+          >Su nombre completo <span aria-hidden="true">*</span></label
+        >
+        <input
+          id="client-name"
+          name="name"
+          autocomplete="name"
+          maxlength="120"
+          required
+        />
+      </div>
+      <div class="form-field">
+        <label for="client-email"
+          >Correo electrónico <span aria-hidden="true">*</span></label
+        >
+        <input
+          id="client-email"
+          name="email"
+          type="email"
+          autocomplete="email"
+          maxlength="254"
+          required
+        />
+      </div>
+      <div class="form-field">
+        <label for="client-phone">Número de teléfono (opcional)</label>
+        <input
+          id="client-phone"
+          name="phone"
+          type="tel"
+          autocomplete="tel"
+          maxlength="40"
+        />
+      </div>
+      <div class="form-field">
+        <label for="client-program"
+          >¿Sobre qué programa desea consultar? <span aria-hidden="true">*</span></label
+        >
+        <select id="client-program" name="program" required>
+          <option value="">Seleccione una opción</option>
+          <option value="NHTD">NHTD</option>
+          <option value="OPWDD">OPWDD</option>
+          <option value="TBI">TBI</option>
+          <option value="Not sure">Todavía no lo sé</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="client-language">Idioma preferido (opcional)</label>
+        <select id="client-language" name="preferred-language">
+          <option value="">Seleccione una opción</option>
+          <option value="English">English</option>
+          <option value="Russian">Русский</option>
+          <option value="Uzbek">O‘zbek</option>
+          <option value="Spanish">Español</option>
+          <option value="Other">Otro</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="client-borough">Su distrito (opcional)</label>
+        <select id="client-borough" name="borough">
+          <option value="">Seleccione una opción</option>
+          <option value="Brooklyn">Brooklyn</option>
+          <option value="Queens">Queens</option>
+          <option value="Manhattan">Manhattan</option>
+          <option value="Bronx">Bronx</option>
+          <option value="Staten Island">Staten Island</option>
+          <option value="Outside NYC">Fuera de la ciudad de Nueva York</option>
+        </select>
+      </div>
+      <p class="note">Al enviar, acepta que Kamilla se comunique con usted sobre esta consulta. El envío no confirma elegibilidad, servicios, empleo ni una cita.</p>
+      <button class="button" type="submit">Enviar consulta de apoyo</button>
+      <p
+        class="form-status"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+        tabindex="-1"
+      ></p>
+    </form>
+    <form
+      class="inquiry-form panel"
+      name="aide-inquiry"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      aria-labelledby="aide-heading"
+      aria-describedby="inquiry-privacy aide-intro"
+      data-inquiry-form
+      data-sending="Enviando…"
+      data-success="Gracias. Su consulta ha sido enviada. Kamilla se comunicará con usted utilizando sus datos de contacto."
+      data-error="No pudimos confirmar el envío. Sus datos siguen en el formulario. Inténtelo de nuevo o contacte a Kamilla al 929-355-2787 o a kamillaturob@gmail.com."
+    >
+      <input type="hidden" name="form-name" value="aide-inquiry" />
+      <input type="hidden" name="website-language" value="es" />
+      <p hidden>
+        <label
+          >Leave this field empty
+          <input name="bot-field" tabindex="-1" autocomplete="off"
+        /></label>
+      </p>
+      <h3 id="aide-heading">Para auxiliares de atención domiciliaria</h3>
+      <p id="aide-intro">Preséntese para consultar sobre trabajo en atención domiciliaria. Las oportunidades y los requisitos se conversarán individualmente.</p>
+      <p class="note">Los campos marcados con * son obligatorios.</p>
+      <div class="form-field">
+        <label for="aide-name"
+          >Su nombre completo <span aria-hidden="true">*</span></label
+        >
+        <input
+          id="aide-name"
+          name="name"
+          autocomplete="name"
+          maxlength="120"
+          required
+        />
+      </div>
+      <div class="form-field">
+        <label for="aide-email"
+          >Correo electrónico <span aria-hidden="true">*</span></label
+        >
+        <input
+          id="aide-email"
+          name="email"
+          type="email"
+          autocomplete="email"
+          maxlength="254"
+          required
+        />
+      </div>
+      <div class="form-field">
+        <label for="aide-phone">Número de teléfono (opcional)</label>
+        <input
+          id="aide-phone"
+          name="phone"
+          type="tel"
+          autocomplete="tel"
+          maxlength="40"
+        />
+      </div>
+      <div class="form-field">
+        <label for="aide-role"
+          >Su puesto o certificación <span aria-hidden="true">*</span></label
+        >
+        <select id="aide-role" name="role" required>
+          <option value="">Seleccione una opción</option>
+          <option value="HHA">Auxiliar de salud en el hogar (HHA)</option>
+          <option value="PCA">Auxiliar de cuidado personal (PCA)</option>
+          <option value="HHA and PCA">HHA y PCA</option>
+          <option value="Other or exploring">Otro / explorando el trabajo en atención domiciliaria</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="aide-language">Idioma preferido (opcional)</label>
+        <select id="aide-language" name="preferred-language">
+          <option value="">Seleccione una opción</option>
+          <option value="English">English</option>
+          <option value="Russian">Русский</option>
+          <option value="Uzbek">O‘zbek</option>
+          <option value="Spanish">Español</option>
+          <option value="Other">Otro</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="aide-borough">Distrito donde prefiere trabajar (opcional)</label>
+        <select id="aide-borough" name="borough">
+          <option value="">Seleccione una opción</option>
+          <option value="Brooklyn">Brooklyn</option>
+          <option value="Queens">Queens</option>
+          <option value="Manhattan">Manhattan</option>
+          <option value="Bronx">Bronx</option>
+          <option value="Staten Island">Staten Island</option>
+          <option value="Outside NYC">Fuera de la ciudad de Nueva York</option>
+        </select>
+      </div>
+      <p class="note">Al enviar, acepta que Kamilla se comunique con usted sobre esta consulta. El envío no confirma elegibilidad, servicios, empleo ni una cita.</p>
+      <button class="button" type="submit">Enviar consulta de empleo</button>
+      <p
+        class="form-status"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+        tabindex="-1"
+      ></p>
+    </form>
   </div>
 </section>
+<script src="../forms.js" defer></script>
 <section class="closing">
   <div class="wrap">
     <h2>¿Quiere conversar?</h2>

@@ -46,7 +46,7 @@
   <h1>Murojaat qilish uchun barcha javoblarni bilishingiz shart emas.</h1>
   <p class="lead">Savol bering, uchrashuv so‘rang yoki ish izlayotgan bo‘lsangiz, o‘zingizni tanishtiring.</p>
 </section>
-<section class="wrap split section">
+<section class="wrap section contact-details">
   <div class="contact-links">
     <p class="eyebrow">KAMILLA BILAN BOG‘LANISH</p>
     <a href="tel:+19293552787">929-355-2787</a>
@@ -56,17 +56,227 @@
     <p>Nyu-York shahri English · Русский · O‘zbek</p>
     <p>Uchrashuvlar telefon yoki elektron pochta orqali kelishiladi. Qulay vaqt va mavjudlikni aniqlash uchun Kamilla bilan bog‘laning.</p>
   </div>
-  <div class="panel">
-    <p class="eyebrow">UCHRASHUV SO‘RASH</p>
-    <h2>Suhbat uchun vaqt kelishamiz.</h2>
-    <p>Qulay kun yoki vaqtni, muloqot tilini va murojaat mavzusini ko‘rsating: OPWDD, NHTD, TBI yoki ish.</p>
-    <a class="button" href="mailto:kamillaturob@gmail.com?subject=Uchrashuv%20so%E2%80%98rovi&amp;body=Salom%2C%20Kamilla!%0A%0AUchrashuv%20so%E2%80%98ramoqchiman.%0AQulay%20kun%20yoki%20vaqt%3A%0AMuloqot%20tili%3A%0AMavzu%3A%0AQayta%20qo%E2%80%98ng%E2%80%98iroq%20qilish%20uchun%20raqam%3A"
-      >Elektron pochta orqali so‘rash
-      <span aria-hidden="true">↗</span>
-    </a>
-    <p class="note">Elektron pochta ilovangiz ochiladi. Uchrashuv Kamilla javob bergandan keyin tasdiqlanadi. Birinchi xatda umumiy ma’lumot bering; maxfiy tibbiy yoki shaxsiy ma’lumotlarni kiritmang.</p>
+  <a class="button" href="mailto:kamillaturob@gmail.com?subject=Uchrashuv%20so%E2%80%98rovi&amp;body=Salom%2C%20Kamilla!%0A%0AUchrashuv%20so%E2%80%98ramoqchiman.%0AQulay%20kun%20yoki%20vaqt%3A%0AMuloqot%20tili%3A%0AMavzu%3A%0AQayta%20qo%E2%80%98ng%E2%80%98iroq%20qilish%20uchun%20raqam%3A"
+    >Elektron pochta orqali so‘rash
+    <span aria-hidden="true">↗</span>
+  </a>
+</section>
+<section class="wrap section" aria-labelledby="inquiry-heading">
+  <h2 id="inquiry-heading">Kamilla sizga qanday yordam bera oladi?</h2>
+  <p>Murojaatingizga mos shaklni tanlang. Kamilla siz ko‘rsatgan aloqa ma’lumotlari orqali bog‘lanadi.</p>
+  <p class="note" id="inquiry-privacy">Bu shakllar dastlabki murojaatlar uchun. Tibbiy ma’lumotlar, Medicaid yoki ijtimoiy sug‘urta raqamlari, moliyaviy ma’lumotlar yoki shaxsni tasdiqlovchi hujjatlarni yubormang.</p>
+  <div class="inquiry-grid">
+    <form
+      class="inquiry-form panel"
+      name="client-inquiry"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      aria-labelledby="client-heading"
+      aria-describedby="inquiry-privacy client-intro"
+      data-inquiry-form
+      data-sending="Yuborilmoqda…"
+      data-success="Rahmat. Murojaatingiz yuborildi. Kamilla siz ko‘rsatgan aloqa ma’lumotlari orqali bog‘lanadi."
+      data-error="Yuborilganini tasdiqlay olmadik. Ma’lumotlaringiz shaklda saqlanib turibdi. Qayta urinib ko‘ring yoki Kamilla bilan 929-355-2787 raqami yoxud kamillaturob@gmail.com orqali bog‘laning."
+    >
+      <input type="hidden" name="form-name" value="client-inquiry" />
+      <input type="hidden" name="website-language" value="uz" />
+      <p hidden>
+        <label
+          >Leave this field empty
+          <input name="bot-field" tabindex="-1" autocomplete="off"
+        /></label>
+      </p>
+      <h3 id="client-heading">Yordam izlayotgan shaxslar va oilalar uchun</h3>
+      <p id="client-intro">O‘zingiz yoki yaqin insoningiz uchun NHTD, OPWDD yoki TBI yordami haqida so‘rang.</p>
+      <p class="note">* bilan belgilangan maydonlar majburiy.</p>
+      <div class="form-field">
+        <label for="client-name"
+          >Ismingiz va familiyangiz <span aria-hidden="true">*</span></label
+        >
+        <input
+          id="client-name"
+          name="name"
+          autocomplete="name"
+          maxlength="120"
+          required
+        />
+      </div>
+      <div class="form-field">
+        <label for="client-email"
+          >Elektron pochta manzili <span aria-hidden="true">*</span></label
+        >
+        <input
+          id="client-email"
+          name="email"
+          type="email"
+          autocomplete="email"
+          maxlength="254"
+          required
+        />
+      </div>
+      <div class="form-field">
+        <label for="client-phone">Telefon raqami (ixtiyoriy)</label>
+        <input
+          id="client-phone"
+          name="phone"
+          type="tel"
+          autocomplete="tel"
+          maxlength="40"
+        />
+      </div>
+      <div class="form-field">
+        <label for="client-program"
+          >Qaysi dastur haqida so‘ramoqchisiz? <span aria-hidden="true">*</span></label
+        >
+        <select id="client-program" name="program" required>
+          <option value="">Variantni tanlang</option>
+          <option value="NHTD">NHTD</option>
+          <option value="OPWDD">OPWDD</option>
+          <option value="TBI">TBI</option>
+          <option value="Not sure">Hali aniq bilmayman</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="client-language">Afzal ko‘rgan tilingiz (ixtiyoriy)</label>
+        <select id="client-language" name="preferred-language">
+          <option value="">Variantni tanlang</option>
+          <option value="English">English</option>
+          <option value="Russian">Русский</option>
+          <option value="Uzbek">O‘zbek</option>
+          <option value="Spanish">Español</option>
+          <option value="Other">Boshqa</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="client-borough">Yashash hududingiz (ixtiyoriy)</label>
+        <select id="client-borough" name="borough">
+          <option value="">Variantni tanlang</option>
+          <option value="Brooklyn">Brooklyn</option>
+          <option value="Queens">Queens</option>
+          <option value="Manhattan">Manhattan</option>
+          <option value="Bronx">Bronx</option>
+          <option value="Staten Island">Staten Island</option>
+          <option value="Outside NYC">Nyu-York shahridan tashqarida</option>
+        </select>
+      </div>
+      <p class="note">Shaklni yuborish orqali Kamilla ushbu murojaat bo‘yicha siz bilan bog‘lanishiga rozilik bildirasiz. Yuborish dasturga muvofiqlik, xizmatlar, ishga qabul yoki uchrashuvni tasdiqlamaydi.</p>
+      <button class="button" type="submit">Yordam haqida so‘rov yuborish</button>
+      <p
+        class="form-status"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+        tabindex="-1"
+      ></p>
+    </form>
+    <form
+      class="inquiry-form panel"
+      name="aide-inquiry"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      aria-labelledby="aide-heading"
+      aria-describedby="inquiry-privacy aide-intro"
+      data-inquiry-form
+      data-sending="Yuborilmoqda…"
+      data-success="Rahmat. Murojaatingiz yuborildi. Kamilla siz ko‘rsatgan aloqa ma’lumotlari orqali bog‘lanadi."
+      data-error="Yuborilganini tasdiqlay olmadik. Ma’lumotlaringiz shaklda saqlanib turibdi. Qayta urinib ko‘ring yoki Kamilla bilan 929-355-2787 raqami yoxud kamillaturob@gmail.com orqali bog‘laning."
+    >
+      <input type="hidden" name="form-name" value="aide-inquiry" />
+      <input type="hidden" name="website-language" value="uz" />
+      <p hidden>
+        <label
+          >Leave this field empty
+          <input name="bot-field" tabindex="-1" autocomplete="off"
+        /></label>
+      </p>
+      <h3 id="aide-heading">Uyda parvarish qilish xodimlari uchun</h3>
+      <p id="aide-intro">Uyda parvarish qilish bo‘yicha ish haqida so‘rash uchun o‘zingizni tanishtiring. Imkoniyatlar va talablar alohida muhokama qilinadi.</p>
+      <p class="note">* bilan belgilangan maydonlar majburiy.</p>
+      <div class="form-field">
+        <label for="aide-name"
+          >Ismingiz va familiyangiz <span aria-hidden="true">*</span></label
+        >
+        <input
+          id="aide-name"
+          name="name"
+          autocomplete="name"
+          maxlength="120"
+          required
+        />
+      </div>
+      <div class="form-field">
+        <label for="aide-email"
+          >Elektron pochta manzili <span aria-hidden="true">*</span></label
+        >
+        <input
+          id="aide-email"
+          name="email"
+          type="email"
+          autocomplete="email"
+          maxlength="254"
+          required
+        />
+      </div>
+      <div class="form-field">
+        <label for="aide-phone">Telefon raqami (ixtiyoriy)</label>
+        <input
+          id="aide-phone"
+          name="phone"
+          type="tel"
+          autocomplete="tel"
+          maxlength="40"
+        />
+      </div>
+      <div class="form-field">
+        <label for="aide-role"
+          >Mutaxassisligingiz yoki sertifikatingiz <span aria-hidden="true">*</span></label
+        >
+        <select id="aide-role" name="role" required>
+          <option value="">Variantni tanlang</option>
+          <option value="HHA">Uyda tibbiy parvarish yordamchisi (HHA)</option>
+          <option value="PCA">Shaxsiy parvarish yordamchisi (PCA)</option>
+          <option value="HHA and PCA">HHA va PCA</option>
+          <option value="Other or exploring">Boshqa / uyda parvarish qilish ishini ko‘rib chiqyapman</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="aide-language">Afzal ko‘rgan tilingiz (ixtiyoriy)</label>
+        <select id="aide-language" name="preferred-language">
+          <option value="">Variantni tanlang</option>
+          <option value="English">English</option>
+          <option value="Russian">Русский</option>
+          <option value="Uzbek">O‘zbek</option>
+          <option value="Spanish">Español</option>
+          <option value="Other">Boshqa</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="aide-borough">Ishlashni xohlagan hududingiz (ixtiyoriy)</label>
+        <select id="aide-borough" name="borough">
+          <option value="">Variantni tanlang</option>
+          <option value="Brooklyn">Brooklyn</option>
+          <option value="Queens">Queens</option>
+          <option value="Manhattan">Manhattan</option>
+          <option value="Bronx">Bronx</option>
+          <option value="Staten Island">Staten Island</option>
+          <option value="Outside NYC">Nyu-York shahridan tashqarida</option>
+        </select>
+      </div>
+      <p class="note">Shaklni yuborish orqali Kamilla ushbu murojaat bo‘yicha siz bilan bog‘lanishiga rozilik bildirasiz. Yuborish dasturga muvofiqlik, xizmatlar, ishga qabul yoki uchrashuvni tasdiqlamaydi.</p>
+      <button class="button" type="submit">Ish haqida so‘rov yuborish</button>
+      <p
+        class="form-status"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+        tabindex="-1"
+      ></p>
+    </form>
   </div>
 </section>
+<script src="../forms.js" defer></script>
 <section class="closing">
   <div class="wrap">
     <h2>Suhbatlashishga tayyormisiz?</h2>
